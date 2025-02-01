@@ -1,0 +1,21 @@
+# macOS system files
+.DS_Store
+
+# Node.js projects (If you use it in the future)
+node_modules/
+
+# Python virtual environment files (If you use Python in the future)
+venv/
+
+# VS Code files
+.vscode/
+
+# Output files (Logs and cache)
+*.log
+.cache/
+
+# Sensitive information (If you use an .env file)
+.env
+
+# Unnecessary files for GitHub Pages
+*.swp
