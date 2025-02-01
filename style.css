@@ -1,0 +1,38 @@
+/* General page styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Heading style */
+h1 {
+    color: #333;
+    font-size: 36px;
+    margin-top: 50px;
+}
+
+/* Paragraph style */
+p {
+    color: #555;
+    font-size: 18px;
+}
+
+/* Navbar (We can use this in later stages) */
+nav {
+    background-color: #333;
+    padding: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
