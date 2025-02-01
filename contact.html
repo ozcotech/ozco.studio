@@ -1,15 +1,12 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - Ozco Studio</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Hairline&family=Doto:wght@400;700&display=swap" rel="stylesheet">
-    <meta name="description" content="Ozco Studio - My personal portfolio website">
-    <meta name="keywords" content="Ozco, Portfolio, Technology, Developer">
-    <meta name="author" content="Ozkan Comert">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <nav>
@@ -20,6 +17,28 @@
     </nav>
 
     <h1>Contact Me</h1>
-    <p>You can reach me at: <strong>info@ozco.studio</strong></p>
+    <p>You can reach out to me via email or follow me on social media.</p>
+
+    <div class="contact-info">
+        <p><strong>Email:</strong> <a href="mailto:info@ozco.studio">info@ozco.studio</a></p>
+        <p><strong>GitHub:</strong> <a href="https://github.com/ozcotech" target="_blank">github.com/ozcotech</a></p>
+    </div>
+
+    <h2>Send Me a Message</h2>
+    <form action="#" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        <p id="capsWarning" style="color: red; font-size: 14px; display: none;">⚠ Caps Lock is ON!</p>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        <p id="capsWarning" style="color: red; font-size: 14px; display: none;">⚠ Caps Lock is ON!</p>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" placeholder="Write your message here..." required></textarea>
+        <p id="capsWarning" style="color: red; font-size: 14px; display: none;">⚠ Caps Lock is ON!</p>
+        
+        <button type="submit">Send</button>
+    </form>
 </body>
 </html>

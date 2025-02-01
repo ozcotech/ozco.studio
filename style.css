@@ -47,3 +47,87 @@ nav a {
 nav a:hover {
     text-decoration: underline;
 }
+/* Contact page styling */
+.contact-info {
+    margin: 20px auto;
+    text-align: center;
+    font-size: 18px;
+}
+
+.contact-info a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Contact form styling */
+form {
+    max-width: 500px;
+    margin: 20px auto;
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px; /* Reduced font size */
+    font-family: "Bungee Hairline", sans-serif; /* Apply Bungee Hairline */
+    font-weight: 400; /* Slightly thicker for readability */
+    color: #333; /* Darker text */
+}
+
+button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px; 
+    margin-top: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 700; 
+    border-radius: 5px;
+    min-width: 150px; 
+}
+
+button:hover {
+    background-color: #555;
+}
+
+/* Default placeholder style (before interaction) */
+input::placeholder,
+textarea::placeholder {
+    font-family: "Bungee Hairline", sans-serif; /* Default font */
+    font-weight: 300; /* Lighter text */
+    font-size: 12px;
+    color: #888; /* Slightly gray */
+}
+
+/* Typing effect for input placeholders when focused */
+@keyframes typingEffect {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+input:focus::placeholder,
+textarea:focus::placeholder {
+    font-family: "Bungee Hairline", sans-serif; /* Apply Bungee Hairline during typing effect */
+    font-size: 12px;
+    color: #666;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    width: 0;
+    animation: typingEffect 1.5s steps(20, end) forwards;
+}
