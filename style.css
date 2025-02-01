@@ -1,6 +1,6 @@
 /* General page styling */
 body {
-    font-family: "Chalkboard SE", "Comic Sans MS", cursive; /* Genel font Chalkboard SE */
+    font-family: "Chalkboard SE", "Comic Sans MS", cursive; 
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
@@ -22,10 +22,10 @@ p {
 
 /* Navbar styling */
 nav {
-    background-color: #807c7c; /* Açık gri tonu */
+    background-color: #807c7c; 
     padding: 15px;
     text-align: center;
-    font-family: "Chalkboard SE", "Comic Sans MS", cursive; /* Navbar için Chalkboard SE */
+    font-family: "Chalkboard SE", "Comic Sans MS", cursive; 
 }
 
 nav a {
