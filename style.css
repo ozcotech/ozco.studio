@@ -1,17 +1,20 @@
 /* General page styling */
 body {
-    font-family: "Bungee Hairline", serif; /* Body için Bungee Hairline */
+    font-family: "Bungee Hairline", serif !important;
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
     text-align: center;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Hafif bir gölge ile koyulaştır */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
     -webkit-text-stroke: 0.8px black;
 }
 
 /* Heading style */
-h1 {
+.home h1 {
     font-family: 'Doto', sans-serif;
+}    
+h1 {
+    font-family: "Bungee Hairline", serif;
     color: #333;
     font-size: 36px;
     margin-top: 50px;
@@ -20,6 +23,7 @@ h1 {
 
 /* Paragraph style */
 p {
+    font-family: "Bungee Hairline", serif;
     color: #555;
     font-size: 18px;
 }
