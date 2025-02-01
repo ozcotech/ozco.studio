@@ -1,6 +1,6 @@
 /* General page styling */
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Chalkboard SE", "Comic Sans MS", cursive; /* Genel font Chalkboard SE */
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
@@ -20,17 +20,20 @@ p {
     font-size: 18px;
 }
 
-/* Navbar (We can use this in later stages) */
+/* Navbar styling */
 nav {
-    background-color: #333;
+    background-color: #807c7c; /* Açık gri tonu */
     padding: 15px;
+    text-align: center;
+    font-family: "Chalkboard SE", "Comic Sans MS", cursive; /* Navbar için Chalkboard SE */
 }
 
 nav a {
-    color: white;
+    color: black;
     text-decoration: none;
     margin: 0 15px;
     font-size: 18px;
+    font-weight: 600;
 }
 
 nav a:hover {
