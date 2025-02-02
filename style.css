@@ -47,11 +47,14 @@ nav a {
 nav a:hover {
     text-decoration: underline;
 }
-/* Contact page styling */
+/* Contact Info Styling */
 .contact-info {
-    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* İçeriği ortala */
+    justify-content: center;
     text-align: center;
-    font-size: 18px;
+    margin-top: 10px;
 }
 
 .contact-info a {
@@ -63,46 +66,66 @@ nav a:hover {
     text-decoration: underline;
 }
 
-/* Contact form styling */
+/* Contact Form Container */
 form {
     max-width: 500px;
-    margin: 20px auto;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     text-align: left;
+    box-sizing: border-box; /* İçerik ve padding dahil edilecek */
 }
 
-label {
-    display: block;
-    font-weight: bold;
-    margin-top: 10px;
-}
-
+/* Input and Textarea */
 input, textarea {
     width: 100%;
-    padding: 8px;
-    margin-top: 5px;
+    box-sizing: border-box;
+    padding: 10px;
+    margin-top: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px; /* Reduced font size */
-    font-family: "Bungee Hairline", sans-serif; /* Apply Bungee Hairline */
-    font-weight: 400; /* Slightly thicker for readability */
-    color: #333; /* Darker text */
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: "Bungee Hairline", sans-serif;
+    color: #333;
+    transition: all 0.3s ease-in-out;
+    display: block; /* Input kutularını hizalamak için */
 }
 
+/* Ensure proper alignment of labels */
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Active input effect */
+input:focus, textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+/* Button Styling */
 button {
     background-color: #333;
     color: white;
     border: none;
-    padding: 10px 20px; 
+    padding: 12px 20px;
     margin-top: 15px;
     cursor: pointer;
     font-size: 16px;
-    font-weight: 700; 
+    font-weight: 700;
     border-radius: 5px;
-    min-width: 150px; 
+    min-width: 160px;
+    transition: all 0.3s ease-in-out;
 }
 
+/* Button Hover Effect */
 button:hover {
-    background-color: #555;
+    background-color: #007bff;
+    transform: scale(1.03);
 }
 
 /* Default placeholder style (before interaction) */
@@ -129,5 +152,68 @@ textarea:focus::placeholder {
     white-space: nowrap;
     display: inline-block;
     width: 0;
-    animation: typingEffect 1.5s steps(20, end) forwards;
+    animation: typingEffect 2s steps(20, end) forwards;
+}
+
+/* Copy Button Styling */
+.copy-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 8px;
+    color: #007bff;
+    transition: color 0.2s ease-in-out;
+}
+
+.copy-btn:hover {
+    color: #0056b3;
+}
+
+/* Copy Icon Styling */
+.copy-icon {
+    width: 18px; 
+    height: 18px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 8px;
+    transition: opacity 0.2s ease-in-out;
+    vertical-align: middle; 
+}
+
+.copy-icon:hover {
+    opacity: 0.6; 
+}
+
+/* Copied Message Styling */
+.copy-message {
+    font-size: 14px;
+    color: green;
+    margin-left: 8px;
+    font-weight: bold;
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 65%;
+    transform: translateY(-50%);
+}
+
+/* Ensure text and icons are properly aligned */
+.contact-info p {
+    margin-bottom: 0px;
+    position: relative;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    gap: 5px;
+    width: 100%;
+    line-height: 1.2;
+}
+.icon-container {
+    position: absolute;
+    top: 45%;       
+    right: 415px;    
+    transform: translateY(-50%); 
 }

@@ -20,8 +20,19 @@
     <p>You can reach out to me via email or follow me on social media.</p>
 
     <div class="contact-info">
-        <p><strong>Email:</strong> <a href="mailto:info@ozco.studio">info@ozco.studio</a></p>
-        <p><strong>GitHub:</strong> <a href="https://github.com/ozcotech" target="_blank">github.com/ozcotech</a></p>
+        <p>
+            <strong>Email:</strong> 
+            <a href="mailto:info@ozco.studio" id="email-text">info@ozco.studio</a> 
+            <span class="icon-container">
+                <img src="assets/icons/copy-icon.svg" alt="Copy" class="copy-icon" onclick="copyToClipboard('email-text', 'email-copy-msg')">
+            </span>
+            <span id="email-copy-msg" class="copy-message">Copied!</span>
+          </p>
+        <p><strong>GitHub:</strong> 
+            <a href="https://github.com/ozcotech" target="_blank" id="github-text">github.com/ozcotech</a> 
+            <img src="assets/icons/copy-icon.svg" alt="Copy" class="copy-icon" onclick="copyToClipboard('github-text', 'github-copy-msg')">
+            <span id="github-copy-msg" class="copy-message">Copied!</span>
+        </p>
     </div>
 
     <h2>Send Me a Message</h2>
@@ -37,7 +48,7 @@
         <label for="message">Message:</label>
         <textarea id="message" name="message" rows="4" placeholder="Write your message here..." required></textarea>
         <p id="capsWarning" style="color: red; font-size: 14px; display: none;">⚠ Caps Lock is ON!</p>
-        
+
         <button type="submit">Send</button>
     </form>
 </body>

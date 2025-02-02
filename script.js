@@ -1,5 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
     function typeEffect(element, text, speed) {
+        if (element.getAttribute("data-typed")) return; 
+        element.setAttribute("data-typed", "true");
+    
         let index = 0;
         function typing() {
             if (index < text.length) {
@@ -41,3 +44,19 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+
+function copyToClipboard(elementId, messageId) {
+    const textElement = document.getElementById(elementId);
+    const textToCopy = textElement.textContent.trim(); // Trim ile boşlukları kaldır
+
+    navigator.clipboard.writeText(textToCopy).then(() => {
+        const message = document.getElementById(messageId);
+        message.style.display = "inline"; // Show "Copied!" message
+
+        setTimeout(() => {
+            message.style.display = "none"; // Hide after 2 seconds
+        }, 2000);
+    }).catch(err => {
+        console.error("Copy failed!", err);
+    });
+}
