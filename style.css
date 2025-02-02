@@ -4,6 +4,7 @@ body {
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
+    padding-top: 60px;
     text-align: center;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
     -webkit-text-stroke: 0.8px black;
@@ -28,11 +29,11 @@ p {
     font-size: 18px;
 }
 
-/* Default navbar */
+/* Navbar - General Styling */
 nav {
     background-color: rgba(128, 124, 124, 0.9);
-    height: 40px;
-    padding: 2px 2px;
+    height: auto; /* Otomatik yükseklik ayarla */
+    padding: 5px 0; /* Dikey paddingi azalttık */
     text-align: center;
     font-family: "Bungee Hairline", serif;
     position: fixed;
@@ -45,11 +46,16 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap; /* Taşmayı önlemek için satır içine sığdırır */
+    overflow-x: auto;
+    white-space: nowrap;
 }
 
 /* Navbar scroll edildikçe şeffaflaşacak */
 nav.scrolled {
     background-color: rgba(255, 255, 255, 0.6); /* Hafif beyaza dönük şeffaf */
+    height: 35px; /* Navbar küçülsün */
+    padding: 15px 0; /* Daha az boşluk */
     box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1); /* Hafif bir gölge efekti */
 }
 
@@ -58,29 +64,36 @@ nav.scrolled a {
     color: black; /* Scroll sonrası link rengi */
 }
 
-/* Navbar linkleri */
+/* Navbar için düzenleme */
 .nav-links {
     display: flex;
     list-style: none;
-    padding: 0;
+    padding: 0 15px; /* Kenarlardan uzaklaştırma */
+    flex-wrap: wrap;
+    justify-content: center; /* Merkeze hizalama */
+    align-items: center;
+    gap: 10px; /* Linkler arasında boşluk */
 }
 
 .nav-links li {
     margin: 0 20px;
 }
 
-/* Navbar linkleri */
 .nav-links a {
     color: black;
     text-decoration: none;
-    font-size: 20px; /* Boyutu biraz küçülttük */
+    font-size: 16px; /* Yazı boyutunu biraz küçült */
     font-weight: 600;
+    padding: 8px 10px; /* İç boşluğu azalt */
+    white-space: nowrap;
+    border-radius: 4px; /* Hafif köşe yuvarlama */
     transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
 
 /* Hover efekti */
 .nav-links a:hover {
     color: white;
+    background-color: #333; /* Hover sırasında arka plan rengi */
     transform: scale(1.1);
 }
 
@@ -259,19 +272,20 @@ textarea:focus::placeholder {
     justify-content: center;
     margin-left: 5px; 
 }
-/* Mobile Responsive Design */
+/* 📱 Mobil Ekranlar İçin (Genişliği Küçült, Sığdır) */
 @media (max-width: 768px) {
-    form {
-        width: 90%; 
-        padding: 15px; 
+    .nav-links {
+        flex-direction: column; /* Dikey hizalama */
+        padding: 10px 0;
+        gap: 5px; /* Daha az boşluk */
+    }
+    .nav-links a {
+        font-size: 14px; /* Daha küçük yazı */
+        padding: 5x; /* Daha az iç boşluk */
     }
 
-    input, textarea {
-        font-size: 14px; 
-    }
-
-    button {
-        width: 100%; 
-        font-size: 18px;
+    nav {
+        flex-direction: column; /* Mobilde dikey hizalama */
+        padding: 1px 0;
     }
 }
