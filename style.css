@@ -17,7 +17,7 @@ h1 {
     font-family: "Bungee Hairline", serif;
     color: #333;
     font-size: 36px;
-    margin-top: 50px;
+    margin-top: 100px;
     font-weight: 700;
 }
 
@@ -28,25 +28,62 @@ p {
     font-size: 18px;
 }
 
-/* Navbar styling */
+/* Default navbar */
 nav {
-    background-color: #807c7c; 
-    padding: 15px;
+    background-color: rgba(128, 124, 124, 0.9);
+    height: 40px;
+    padding: 2px 2px;
     text-align: center;
     font-family: "Bungee Hairline", serif;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transition: background-color 0.3s ease-in-out;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-nav a {
+/* Navbar scroll edildikçe şeffaflaşacak */
+nav.scrolled {
+    background-color: rgba(255, 255, 255, 0.6); /* Hafif beyaza dönük şeffaf */
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1); /* Hafif bir gölge efekti */
+}
+
+/* Navbar link rengi scroll sonrası */
+nav.scrolled a {
+    color: black; /* Scroll sonrası link rengi */
+}
+
+/* Navbar linkleri */
+.nav-links {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.nav-links li {
+    margin: 0 20px;
+}
+
+/* Navbar linkleri */
+.nav-links a {
     color: black;
     text-decoration: none;
-    margin: 0 15px;
-    font-size: 18px;
+    font-size: 20px; /* Boyutu biraz küçülttük */
     font-weight: 600;
+    transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
 
-nav a:hover {
-    text-decoration: underline;
+/* Hover efekti */
+.nav-links a:hover {
+    color: white;
+    transform: scale(1.1);
 }
+
 /* Contact Info Styling */
 .contact-info {
     display: flex;
