@@ -109,22 +109,23 @@ input:focus, textarea:focus {
 
 /* Button Styling */
 button {
-    background-color: #333;
+    background-color: #555;
     color: white;
     border: none;
     padding: 12px 20px;
     margin-top: 15px;
     cursor: pointer;
-    font-size: 16px;
-    font-weight: 700;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 2px; 
     border-radius: 5px;
-    min-width: 160px;
+    min-width: 100px;
     transition: all 0.3s ease-in-out;
 }
 
 /* Button Hover Effect */
 button:hover {
-    background-color: #007bff;
+    background-color: #777;
     transform: scale(1.03);
 }
 
