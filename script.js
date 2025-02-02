@@ -49,59 +49,56 @@ document.addEventListener("DOMContentLoaded", function() {
     // 🛠 FIXED: Form Validation with Correct Event Handling
     const form = document.getElementById("contact-form");
 
-    if (form) { // Ensure the form exists before adding event listener
+    // Clipboard Copy Function
+    function copyToClipboard(elementId, messageId) {
+        const textElement = document.getElementById(elementId);
+        if (!textElement) {
+            console.error(`❌ Element with ID '${elementId}' not found!`);
+            return;
+        }
+
+        const textToCopy = textElement.textContent.trim();
+
+        navigator.clipboard.writeText(textToCopy).then(() => {
+            const message = document.getElementById(messageId);
+            if (message) {
+                message.style.display = "inline";
+
+                setTimeout(() => {
+                    message.style.display = "none";
+                }, 2000);
+            }
+        }).catch(err => {
+            console.error("Copy failed!", err);
+        });
+    }
+
+    // Navbar Scroll Effect
+    window.addEventListener("scroll", function () {
+        const navbar = document.querySelector("nav");
+        if (window.scrollY > 50) {
+            navbar.classList.add("scrolled");
+        } else {
+            navbar.classList.remove("scrolled");
+        }
+    });
+
+    // Form Submit and Reset Functionality
+    if (form) {
         form.addEventListener("submit", function(event) {
-            let name = document.getElementById("name").value.trim();
-            let email = document.getElementById("email").value.trim();
-            let message = document.getElementById("message").value.trim();
+            event.preventDefault(); // Stop the default form submission behavior
+
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const message = document.getElementById("message").value.trim();
 
             if (name === "" || email === "" || message === "") {
-                event.preventDefault(); // Stop form from submitting
-                alert("Please fill in all fields.");
+                alert("Please fill in all fields."); // Alert if fields are empty
                 return;
             }
 
-            event.preventDefault(); // Stop actual submission
-            alert("Your message has been sent successfully!");
+            alert("Your message has been sent successfully!"); // Success message
+            form.reset(); // Clear the form fields
         });
-    } else {
-        console.error("❌ Form with ID 'contact-form' not found!");
     }
 });
-
-// Clipboard Copy Function
-function copyToClipboard(elementId, messageId) {
-    const textElement = document.getElementById(elementId);
-    if (!textElement) {
-        console.error(`❌ Element with ID '${elementId}' not found!`);
-        return;
-    }
-
-    const textToCopy = textElement.textContent.trim();
-
-    navigator.clipboard.writeText(textToCopy).then(() => {
-        const message = document.getElementById(messageId);
-        if (message) {
-            message.style.display = "inline";
-
-            setTimeout(() => {
-                message.style.display = "none";
-            }, 2000);
-        }
-    }).catch(err => {
-        console.error("Copy failed!", err);
-    });
-}
-
-// Navbar Scroll Effect
-window.addEventListener("scroll", function () {
-    const navbar = document.querySelector("nav");
-    if (window.scrollY > 50) {
-        navbar.classList.add("scrolled");
-    } else {
-        navbar.classList.remove("scrolled");
-    }
-});
-
-
-
