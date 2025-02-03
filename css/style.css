@@ -288,14 +288,14 @@ textarea:focus::placeholder {
         flex-direction: row; /* Yatay hizalama */
         justify-content: space-evenly; /* Yazıları eşit şekilde dağıt */
         align-items: center; /* Dikeyde ortala */
-        padding: 5px 0; /* Daha dengeli bir üst-alt boşluk */
-        gap: 5px; /* Daha doğal bir aralık */
+        padding: 2px 0; /* Daha dengeli bir üst-alt boşluk */
+        gap: 2px; /* Daha doğal bir aralık */
     }
 
     .nav-links a {
         text-align: center; /* Her link yazısını ortala */
-        font-size: 14px; /* Mobil için daha uygun bir boyut */
-        padding: 5px 10px; /* Yazılar etrafında biraz daha boşluk */
+        font-size: 10px; /* Mobil için daha uygun bir boyut */
+        padding: 2px 5px; /* Yazılar etrafında biraz daha boşluk */
     }
 
     nav {
@@ -303,7 +303,7 @@ textarea:focus::placeholder {
         flex-direction: row; /* Yatay hizalama */
         justify-content: center; /* Elemanları ortala */
         align-items: center; /* Dikeyde ortala */
-        padding: 5px 0; /* Üst ve alt boşluk dengesi */
+        padding: 2px 0; /* Üst ve alt boşluk dengesi */
     }
 }
 
