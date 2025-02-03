@@ -108,7 +108,7 @@ nav.scrolled a {
 }
 
 .contact-info a {
-    color: #007bff;
+    color: #505d6a;
     text-decoration: none;
 }
 
@@ -155,7 +155,7 @@ label {
 
 /* Active input effect */
 input:focus, textarea:focus {
-    border-color: #007bff;
+    border-color: #5a7a9c;
     box-shadow: 0px 0px 10px rgba(0, 123, 255, 0.4);
     outline: none;
 }
@@ -178,7 +178,7 @@ button {
 
 /* Button Hover Effect */
 button:hover {
-    background-color: #0056b3; 
+    background-color: #55718d; 
     transform: scale(1.05); 
     box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2); 
 }
