@@ -21,11 +21,11 @@ Ozco Studio is a personal portfolio website where I explore, learn, and showcase
 ✔️ **Project detail pages with individual content** 📝  
 
 ## 🔮 Upcoming Features   
-🚀 **Dark Mode:** A toggle for light & dark themes 🌙 
+🚀 **Dark Mode:** A toggle for light & dark themes 🌙  
 🚀 **Enhanced Animations:** Smooth transitions & hover effects  
 🚀 **Blog Section:** Sharing insights and experiences  
 🚀 **Advanced Form Handling:** Backend integration for contact form  
-🚀 **Portfolio Customization:** More styling and interactive sections  
+🚀 **Portfolio Customization:** More styling and interactive sections    
 
 ## 🤖 AI Assistance  
 This project has been **partially developed with AI assistance**, helping with **debugging, structuring, and efficiency improvements** while keeping the creative direction and implementation fully human-driven.  
