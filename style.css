@@ -337,6 +337,6 @@ body {
 
 footer {
     margin-top: auto; /* Sayfanın sonunda footer'ı sabitler */
-    line-height: 0.5; /* Yazılar daha sıkı olsun */
+    line-height: 0.8; /* Yazılar daha sıkı olsun */
     padding: 0px 3px; /* Daha dar hale getirdik */
 }
