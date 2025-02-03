@@ -14,14 +14,23 @@ body {
 .home h1 {
     font-family: 'Doto', sans-serif;
 }    
-h1 {
-    font-family: "Bungee Hairline", serif;
+h1, h2, h3, p {
+    font-family: "Bungee Hairline", sans-serif !important;
     color: #333;
+    margin-top: 20px;
+}
+h1 {
     font-size: 36px;
-    margin-top: 100px;
     font-weight: 700;
 }
 
+h2 {
+    font-size: 28px;
+}
+
+h3 {
+    font-size: 20px;
+}
 /* Paragraph style */
 p {
     font-family: "Bungee Hairline", serif;
@@ -304,6 +313,99 @@ textarea:focus::placeholder {
     border-left: 4px solid #696d71;
     border-right: 4px solid #696d71;
 }
+
+/* Projects Section */
+#projects {
+    padding: 40px 20px;
+    text-align: center;
+    
+  }
+  
+    #projects h1, h2, h3 {
+    font-family: "Bungee Hairline", serif;
+    font-size: 28px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+  }
+  
+  /* Grid for Projects */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .project-card h1, h2, h3 {
+    font-family: "Bungee Hairline" !important;
+  }
+  
+  @media (min-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr 1fr; 
+    }
+}
+
+@media (min-width: 1024px) {
+    .projects-grid {
+        grid-template-columns: 1fr 1fr 1fr; 
+    }
+}
+
+  /* Individual Project Card */
+  .project-card {
+    background: #f4f4f4;
+    border-radius: 50px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 20px;
+    min-height: 300px; 
+    transition: transform 0.2s ease-in-out;
+    text-decoration: none; 
+    color: inherit;
+    display: block; 
+  }
+  
+  /* Card Hover Effects */
+  .project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Card Content */
+  .card-content {
+    padding: 20px;
+    text-align: left;
+  }
+  
+  .card-content h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .card-content p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.5;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .projects-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .project-card {
+    min-height: 350px; /* Kartları daha uzun yap */
+    max-width: 400px; /* Kartlar çok geniş olmasın */
+    margin: auto; /* Orta hizalama */
+}
+
 
 /* Footer Styling */
 footer {
