@@ -284,7 +284,7 @@ textarea:focus::placeholder {
 /* 📱 Mobil Ekranlar İçin (Genişliği Küçült, Sığdır) */
 @media (max-width: 768px) {
     .nav-links {
-        flex-direction: column; /* Dikey hizalama */
+        flex-direction: row; /* Yatay hizalama */
         padding: 5px 0;
         gap: 1px; /* Daha az boşluk */
     }
