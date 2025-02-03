@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(response => response.json())
         .then(data => {
             document.getElementById("about-title").innerText = data.title;
-            document.getElementById("about-content").innerText = data.content;
+            document.getElementById("about-content").innerHTML = data.content.replace(/\n\n/g, "</p><p>").replace(/\n/g, "<br>");
         })
         .catch(error => console.error("Error loading about content:", error));
 });

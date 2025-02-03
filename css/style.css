@@ -414,6 +414,15 @@ textarea:focus::placeholder {
     margin: auto; /* Orta hizalama */
 }
 
+/*------------------- About Section -------------------*/
+#about-content {
+    text-align: center; /* Yazıları ortala */
+    max-width: 60%; /* Çok geniş olmaması için */
+    margin: 0 auto; /* Ortalamak için */
+    line-height: 1.6; /* Daha iyi okunabilirlik */
+    font-size: 18px; /* Yazıyı biraz büyüt */
+}
+
 /*------------------- Footer Styling -------------------*/
 .social-icon {
     width: 50px;  /* İkonun genişliği */
