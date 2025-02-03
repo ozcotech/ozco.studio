@@ -289,3 +289,18 @@ textarea:focus::placeholder {
         padding: 1px 0;
     }
 }
+
+.motivational-quote {
+    font-size: 22px;
+    font-weight: bold;
+    color: #696d71;
+    text-align: center;
+    margin-top: 30px;
+    padding: 10px;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    font-style: italic;
+    border-left: 4px solid #696d71;
+    border-right: 4px solid #696d71;
+}
