@@ -304,3 +304,39 @@ textarea:focus::placeholder {
     border-left: 4px solid #696d71;
     border-right: 4px solid #696d71;
 }
+
+/* Footer Styling */
+footer {
+    background-color: #f0ecec;
+    color: #444;
+    text-align: center;
+    padding: 0px 0;
+    font-size: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    line-height: 1;
+}
+/* Footer Linkleri */
+footer a {
+    font-size: 12px; /* Link yazı boyutunu da küçülttük */
+    margin: 0 2px; /* Linkler arasındaki boşluğu azalttık */
+}
+/* Eğer footer, içeriğin altında değilse, sayfanın tamamını kaplaması için: */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    margin-top: auto; /* Sayfanın sonunda footer'ı sabitler */
+    line-height: 0.5; /* Yazılar daha sıkı olsun */
+    padding: 0px 3px; /* Daha dar hale getirdik */
+}
