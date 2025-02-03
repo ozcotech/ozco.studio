@@ -1,6 +1,6 @@
 /* General page styling */
 body {
-    font-family: "Bungee Hairline", serif !important;
+    font-family: "Bungee Hairline", serif;
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
@@ -15,7 +15,7 @@ body {
     font-family: 'Doto', sans-serif;
 }    
 h1, h2, h3, p {
-    font-family: "Bungee Hairline", sans-serif !important;
+    font-family: "Bungee Hairline", sans-serif;
     color: #333;
     margin-top: 20px;
 }
