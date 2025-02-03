@@ -16,9 +16,9 @@ Ozco Studio is a personal portfolio website where I explore, learn, and showcase
 ✔️ Contact form with real-time validation ✉️  
 ✔️ Smooth scrolling and animations 🎨  
 ✔️ Footer with quick links & visitor info  
+✔️ Card-based UI for better project display  
 
-## 🔮 Upcoming Features  
-🚀 **Projects Section:** Card-based UI for better project display  
+## 🔮 Upcoming Features   
 🚀 **Enhanced Animations:** Smooth transitions & hover effects  
 🚀 **Blog Section:** Sharing insights and experiences  
 🚀 **Dark Mode Support:** 🌙
