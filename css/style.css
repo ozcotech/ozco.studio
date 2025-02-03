@@ -294,7 +294,7 @@ textarea:focus::placeholder {
 
     .nav-links a {
         text-align: center; /* Her link yazısını ortala */
-        font-size: 10px; /* Mobil için daha uygun bir boyut */
+        font-size: 12px; /* Mobil için daha uygun bir boyut */
         padding: 2px 5px; /* Yazılar etrafında biraz daha boşluk */
     }
 
