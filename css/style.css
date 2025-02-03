@@ -285,16 +285,16 @@ textarea:focus::placeholder {
 @media (max-width: 768px) {
     .nav-links {
         flex-direction: column; /* Dikey hizalama */
-        padding: 10px 0;
-        gap: 5px; /* Daha az boşluk */
+        padding: 5px 0;
+        gap: 1px; /* Daha az boşluk */
     }
     .nav-links a {
-        font-size: 14px; /* Daha küçük yazı */
+        font-size: 12px; /* Daha küçük yazı */
         padding: 5x; /* Daha az iç boşluk */
     }
 
     nav {
-        flex-direction: column; /* Mobilde dikey hizalama */
+        flex-direction: row; /* Mobilde yatay hizalama */
         padding: 1px 0;
     }
 }
