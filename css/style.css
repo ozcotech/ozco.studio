@@ -416,8 +416,8 @@ textarea:focus::placeholder {
 
 /*------------------- Footer Styling -------------------*/
 .social-icon {
-    width: 30px;  /* İkonun genişliği */
-    height: 30px; /* İkonun yüksekliği */
+    width: 50px;  /* İkonun genişliği */
+    height: 50px; /* İkonun yüksekliği */
     margin: 0 10px; /* İkonlar arasında boşluk */
     transition: transform 0.2s ease-in-out;
 }
