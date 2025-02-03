@@ -108,3 +108,13 @@ document.addEventListener("DOMContentLoaded", function() {
         navbar?.classList.toggle("scrolled", window.scrollY > 50);
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    fetch("data/about.json") 
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("about-title").innerText = data.title;
+            document.getElementById("about-content").innerText = data.content;
+        })
+        .catch(error => console.error("Error loading about content:", error));
+});
