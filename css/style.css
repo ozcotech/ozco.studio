@@ -414,6 +414,19 @@ textarea:focus::placeholder {
     margin: auto; /* Orta hizalama */
 }
 
+/*------------------- Footer Styling -------------------*/
+.social-icon {
+    width: 30px;  /* İkonun genişliği */
+    height: 30px; /* İkonun yüksekliği */
+    margin: 0 10px; /* İkonlar arasında boşluk */
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Hover Efekti */
+.social-icon:hover {
+    transform: scale(1.2); /* İkonu biraz büyüt */
+    opacity: 0.8; /* Hafif saydamlık efekti */
+}
 
 /* Footer Styling */
 footer {
