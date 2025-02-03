@@ -284,18 +284,26 @@ textarea:focus::placeholder {
 /* 📱 Mobil Ekranlar İçin (Genişliği Küçült, Sığdır) */
 @media (max-width: 768px) {
     .nav-links {
+        display: flex;
         flex-direction: row; /* Yatay hizalama */
-        padding: 2px 0;
-        gap: 1px; /* Daha az boşluk */
+        justify-content: space-evenly; /* Yazıları eşit şekilde dağıt */
+        align-items: center; /* Dikeyde ortala */
+        padding: 5px 0; /* Daha dengeli bir üst-alt boşluk */
+        gap: 5px; /* Daha doğal bir aralık */
     }
+
     .nav-links a {
-        font-size: 12px; /* Daha küçük yazı */
-        padding: 2x; /* Daha az iç boşluk */
+        text-align: center; /* Her link yazısını ortala */
+        font-size: 14px; /* Mobil için daha uygun bir boyut */
+        padding: 5px 10px; /* Yazılar etrafında biraz daha boşluk */
     }
 
     nav {
-        flex-direction: row; /* Mobilde yatay hizalama */
-        padding: 1px 0;
+        display: flex; /* Flexbox özelliği ekleyelim */
+        flex-direction: row; /* Yatay hizalama */
+        justify-content: center; /* Elemanları ortala */
+        align-items: center; /* Dikeyde ortala */
+        padding: 5px 0; /* Üst ve alt boşluk dengesi */
     }
 }
 
