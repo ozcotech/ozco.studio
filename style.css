@@ -93,7 +93,7 @@ nav.scrolled a {
 /* Hover efekti */
 .nav-links a:hover {
     color: white;
-    background-color: #333; /* Hover sırasında arka plan rengi */
+    background-color: #716f6f; /* Hover sırasında arka plan rengi */
     transform: scale(1.1);
 }
 
