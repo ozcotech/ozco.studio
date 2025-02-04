@@ -116,6 +116,7 @@ nav.scrolled a {
     margin-top: 10px;
 }
 
+
 .contact-info a {
     color: #505d6a;
     text-decoration: none;
@@ -327,6 +328,7 @@ textarea:focus::placeholder {
     padding: 40px 20px;
     text-align: center;
     
+    
   }
   
     #projects h1, h2, h3 {
@@ -370,6 +372,7 @@ textarea:focus::placeholder {
     text-decoration: none; 
     color: inherit;
     display: block; 
+    
   }
   
   /* Card Hover Effects */
@@ -412,6 +415,7 @@ textarea:focus::placeholder {
     min-height: 350px; /* Kartları daha uzun yap */
     max-width: 400px; /* Kartlar çok geniş olmasın */
     margin: auto; /* Orta hizalama */
+    
 }
 
 /*------------------- About Section -------------------*/
@@ -439,19 +443,15 @@ textarea:focus::placeholder {
 
 /* Footer Styling */
 footer {
-    background-color: #f0ecec;
-    color: #444;
-    text-align: center;
-    padding: 0px 0;
-    font-size: 10px;
-    position: absolute;
+    position: relative; /* Position değiştirildi */
     bottom: 0;
     width: 100%;
-    line-height: 1;
+    margin-top: auto; /* İçeriğe göre en alta yapışmasını sağlar */
+    padding: 10px 0; /* İç boşluk */
 }
 /* Footer Linkleri */
 footer a {
-    font-size: 12px; /* Link yazı boyutunu da küçülttük */
+    font-size: 6px; /* Link yazı boyutunu da küçülttük */
     margin: 0 2px; /* Linkler arasındaki boşluğu azalttık */
 }
 /* Eğer footer, içeriğin altında değilse, sayfanın tamamını kaplaması için: */
@@ -465,10 +465,27 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
+    min-height: 100vh; /* Sayfanın en az ekran yüksekliği kadar olmasını sağlar */
+}
+
+main {
+    flex: 1; /* Sayfa içeriğini genişlet, footer'ı alta it */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* İçerikle footer arasında boşluk bırak */
 }
 
 footer {
-    margin-top: auto; /* Sayfanın sonunda footer'ı sabitler */
-    line-height: 0.8; /* Yazılar daha sıkı olsun */
-    padding: 0px 3px; /* Daha dar hale getirdik */
+    margin-top: auto; /* Footer'ı her zaman en aşağı iter */
+    background-color: #f0ecec;
+    color: #444;
+    text-align: center;
+    padding: 5px 0;
+    font-size: 10px;
+    width: 100%;
+    line-height: 1;
+}
+
+#content {
+    min-height: calc(100vh - 100px); /* Footer dışında kalan alanı sayfa boyutuna tamamla */
 }
