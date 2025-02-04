@@ -428,11 +428,11 @@ textarea:focus::placeholder {
 }
 
 /*------------------- Footer Styling -------------------*/
-.social-icon {
-    width: 50px;  /* İkonun genişliği */
-    height: 50px; /* İkonun yüksekliği */
-    margin: 0 10px; /* İkonlar arasında boşluk */
-    transition: transform 0.2s ease-in-out;
+.social-icon, .logo {
+    border-radius: 50%; /* Logoyu yuvarlak yapar */
+    width: 50px; /* Genişlik ayarla */
+    height: 50px; /* Yükseklik ayarla */
+    object-fit: cover; /* Kırpmayı önlemek için */
 }
 
 /* Hover Efekti */
