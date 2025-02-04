@@ -347,7 +347,7 @@ textarea:focus::placeholder {
   .project-card h1, h2, h3 {
     font-family: "Bungee Hairline" !important;
   }
-  
+
   @media (min-width: 768px) {
     .projects-grid {
         grid-template-columns: 1fr 1fr; 
@@ -362,6 +362,7 @@ textarea:focus::placeholder {
 
   /* Individual Project Card */
   .project-card {
+    display: flex; 
     background: #f4f4f4;
     border-radius: 50px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -372,6 +373,8 @@ textarea:focus::placeholder {
     text-decoration: none; 
     color: inherit;
     display: block; 
+    position: relative;
+    overflow: hidden;
     
   }
   
@@ -411,12 +414,56 @@ textarea:focus::placeholder {
     }
   }
 
-  .project-card {
-    min-height: 350px; /* Kartları daha uzun yap */
-    max-width: 400px; /* Kartlar çok geniş olmasın */
-    margin: auto; /* Orta hizalama */
-    
+.project-card h2 {
+    margin-bottom: 10px; /* Başlık ve içerik arasında boşluk */
 }
+
+.project-card p {
+    margin: 0; 
+    margin-top: auto; /* Yazıyı en alta iter */
+    font-size: 14px; /* Yazı boyutunu ayarla */
+    color: #555;
+}
+
+/* Project Images */
+.project-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    display: block;
+}
+
+/* Individual Project Page Styling */
+.project-detail-image {
+    width: 80%;
+    max-width: 600px;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+    border-radius: 15px;
+}
+/* Project Details Styling */
+.project-details-container {
+    display: flex; /* Resim ve metni yan yana hizala */
+    align-items: center; /* Dikeyde ortala */
+    justify-content: start; /* Resmi sola, metni sağa hizala */
+    gap: 20px; /* Resim ve metin arasındaki boşluk */
+    max-width: 80%; /* İçeriğin ekranı tam kaplamasını engelle */
+    margin: 0 auto; /* Ortalamak için */
+}
+
+.project-detail-image {
+    width: 40%; /* Resmin genişliği */
+    height: auto;
+    border-radius: 15px;
+}
+
+.project-details-text {
+    width: 55%; /* Yazı alanının genişliği */
+    text-align: left; /* Metni sola hizala */
+}
+
 
 /*------------------- About Section -------------------*/
 #about-content {
