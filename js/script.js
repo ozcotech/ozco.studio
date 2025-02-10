@@ -120,13 +120,48 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    if (document.getElementById("project-title")) {
-        fetch("data/project3.json")
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById("project-title").innerText = data.title;
-                document.getElementById("project-content").innerText = data.content;
-            })
-            .catch(error => console.error("Error loading project data:", error));
-    }
+    fetch("data/project3.json")  // JSON dosyanın yolunu kontrol et
+        .then(response => response.json())
+        .then(data => {
+            const lang = document.documentElement.lang === "tr" ? "tr" : "en"; // Dil belirleme (TR veya EN)
+
+            document.getElementById("project-title").textContent = data[`title_${lang}`];
+            document.getElementById("project-introduction").textContent = data[`introduction_${lang}`];
+            
+            document.getElementById("phase-1-title").textContent = data[`phase_1_title_${lang}`];
+            document.getElementById("phase-1-description").textContent = data[`phase_1_description_${lang}`];
+
+            // Hedef kitleyi liste halinde ekleme
+            const targetAudienceList = document.getElementById("target-audience");
+            targetAudienceList.innerHTML = ""; // Önce temizle
+            data[`target_audience_${lang}`].forEach(item => {
+                const li = document.createElement("li");
+                li.innerHTML = item;
+                targetAudienceList.appendChild(li);
+            });
+
+            document.getElementById("phase-2-title").textContent = data[`phase_2_title_${lang}`];
+            document.getElementById("phase-2-description").textContent = data[`phase_2_description_${lang}`];
+
+            // Örnek cümleyi alıntı (blockquote) içinde göster
+            document.getElementById("example").textContent = data[`example_${lang}`];
+
+            // Yapay zeka yeteneklerini liste halinde ekleme
+            const aiCapabilitiesList = document.getElementById("ai-capabilities");
+            aiCapabilitiesList.innerHTML = ""; // Önce temizle
+            data[`ai_capabilities_${lang}`].forEach(item => {
+                const li = document.createElement("li");
+                li.innerHTML = item;
+                aiCapabilitiesList.appendChild(li);
+            });
+
+            document.getElementById("final-stage-title").textContent = data[`final_stage_${lang}`];
+            document.getElementById("final-stage-description").textContent = data[`final_stage_description_${lang}`];
+
+            document.getElementById("business-model").textContent = data[`business_model_${lang}`];
+            document.getElementById("future-potential").textContent = data[`future_potential_${lang}`];
+            document.getElementById("conclusion").textContent = data[`conclusion_${lang}`];
+
+        })
+        .catch(error => console.error("JSON yüklenirken hata oluştu:", error));
 });

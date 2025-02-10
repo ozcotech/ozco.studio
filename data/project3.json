@@ -1,4 +1,61 @@
 {
-    "title": "Mediation Fee Calculator",
-    "content": "This project is a Python-based mediation fee calculator that ensures compliance with legal regulations.\n\nIt automates complex fee calculations, saving time and reducing errors.\n\nFuture versions may include a user-friendly interface and real-time legal updates."
+    "title_tr": "Yapay Zeka Destekli Arabuluculuk Ücreti Hesaplama Programı",
+    "title_en": "AI-Powered Mediation Fee Calculation Program",
+    
+    "introduction_tr": "Arabuluculuk süreçlerinde taraflar ve hukukçular için hızlı, doğru ve kullanıcı dostu bir ücret hesaplama sistemi oluşturuyoruz. Bu proje, Türk hukuk sistemine uygun bir şekilde, en güncel mevzuat esas alınarak hazırlanmıştır. Proje iki ana aşamadan oluşmaktadır: Klasik Hesaplama Modülü ve Yapay Zeka Destekli Hesaplama Modülü.",
+    "introduction_en": "We are developing a fast, accurate, and user-friendly fee calculation system for mediation processes, designed for both parties and legal professionals. This project is tailored to comply with the Turkish legal system, using the latest legislation. The project consists of two main phases: the Classic Calculation Module and the AI-Powered Calculation Module.",
+    
+    "phase_1_title_tr": "📌 1. Aşama: Klasik Hesaplama Modülü",
+    "phase_1_title_en": "📌 Phase 1: Classic Calculation Module",
+    
+    "phase_1_description_tr": "İlk aşamada, Python diliyle geliştirilecek olan bu modül, mevcut arabuluculuk mevzuatına uygun bir şekilde çalışacak ve 2025 yılına ait Arabuluculuk Ücret Tarifesi’ni temel alacaktır. Kullanıcılar, uyuşmazlık türünü, taraf sayısını ve anlaşma miktarını girerek hızlı ve doğru bir hesaplama sonucu alabileceklerdir. Bu aşamada hedef kitlemiz şunlardır:",
+    "phase_1_description_en": "In the first phase, this module, developed in Python, will function in accordance with current mediation legislation and will be based on the 2025 Mediation Fee Schedule. Users will be able to enter the type of dispute, number of parties, and settlement amount to obtain a quick and accurate calculation. Our target audience for this phase includes:",
+    
+    "target_audience_tr": [
+        "👨‍⚖️ **Avukatlar ve Arabulucular:** Müvekkillerine ve kendilerine hızlı ve doğru ücret bilgisi sağlamak isteyen profesyoneller.",
+        "🏢 **İşletmeler ve Kurumlar:** İş ve ticaret hukukundaki uyuşmazlıklarda arabuluculuk sürecinde ücretlendirme konusunda bilgi edinmek isteyen firmalar.",
+        "🧑‍💼 **Vatandaşlar:** Arabuluculuk sürecine dahil olmadan önce karşılaşacakları olası ücretleri öğrenmek isteyen kişiler."
+    ],
+    "target_audience_en": [
+        "👨‍⚖️ **Lawyers and Mediators:** Professionals who need fast and accurate fee information for their clients and themselves.",
+        "🏢 **Businesses and Organizations:** Companies seeking information about mediation fees in labor and commercial law disputes.",
+        "🧑‍💼 **Citizens:** Individuals who want to understand potential mediation fees before engaging in the process."
+    ],
+    
+    "phase_2_title_tr": "🤖 2. Aşama: Yapay Zeka Destekli Hesaplama Modülü",
+    "phase_2_title_en": "🤖 Phase 2: AI-Powered Calculation Module",
+    
+    "phase_2_description_tr": "Projenin ikinci aşaması, yapay zeka entegrasyonu ile bir adım öteye taşınıyor. Kullanıcılar artık klasik formlar yerine, doğal dil kullanarak hesaplama yapabilecekler. Örneğin:",
+    "phase_2_description_en": "The second phase of the project takes it a step further with AI integration. Users will now be able to perform calculations using natural language instead of traditional forms. For example:",
+    
+    "example_tr": "\"Biz 3 taraf, iş hukukunda 7 farklı kalemde (kıdem tazminatı, ihbar tazminatı vb.) 1 milyon TL’ye anlaştık, ücreti eşit paylaşacağız. Ne kadar ödeme yapmalıyız?\"",
+    "example_en": "\"We are 3 parties in labor law, settling on 7 different items (severance pay, notice pay, etc.) for 1 million TL. We will share the fee equally. How much do we need to pay?\"",
+    
+    "ai_capabilities_tr": [
+        "✅ Kullanıcıların doğal dilde sorduğu hesaplama taleplerine doğru yanıt verecek.",
+        "✅ Hesaplamayı yaptıktan sonra, açıklayıcı ve yönlendirici cevaplar sunacak.",
+        "✅ Sadece arabuluculuk ücreti hesaplamasına odaklanarak, konuyla ilgili net cevaplar verecek.",
+        "✅ Hukuki konular dışındaki sorulara, \"Bu konuda yardımcı olamıyorum\" gibi yanıtlar verecek."
+    ],
+    "ai_capabilities_en": [
+        "✅ Will provide accurate responses to user queries formulated in natural language.",
+        "✅ Will offer clear and guiding explanations after calculations.",
+        "✅ Will focus solely on mediation fee calculations, providing precise answers.",
+        "✅ Will respond with \"I cannot assist with this topic\" for non-legal inquiries."
+    ],
+    
+    "final_stage_tr": "🎙️ **Son Aşama: Sesli Yapay Zeka Asistanı**",
+    "final_stage_en": "🎙️ **Final Stage: Voice AI Assistant**",
+    
+    "final_stage_description_tr": "Bu projenin en yenilikçi aşaması, sesli yapay zeka asistanı ile doğal konuşmalarla arabuluculuk ücreti hesaplama yeteneği olacak. Kullanıcılar bir avukat veya arabulucuya danışır gibi soru sorabilecek ve sesli yanıt alabilecekler.",
+    "final_stage_description_en": "The most innovative phase of this project will be the voice AI assistant, allowing users to calculate mediation fees through natural conversations. Users will be able to ask questions as if consulting a lawyer or mediator and receive spoken responses.",
+    
+    "future_potential_tr": "Bu proje, hukuk teknolojilerinde yeni bir dönemin başlangıcı olabilir. Arabuluculuk sürecini daha erişilebilir ve anlaşılır hale getirmek için en yeni teknolojilerden yararlanıyoruz.",
+    "future_potential_en": "This project has the potential to mark the beginning of a new era in legal technology. We are leveraging cutting-edge technologies to make the mediation process more accessible and understandable.",
+    
+    "business_model_tr": "🆓 İlk aşamada proje tamamen ücretsiz olacak. Geniş bir kullanıcı kitlesine ulaştıktan sonra, gelişmiş özellikler ve premium hizmetler için gelir modelleri geliştirilebilir.",
+    "business_model_en": "🆓 In the initial phase, the project will be entirely free. After reaching a broad user base, revenue models can be developed for advanced features and premium services.",
+    
+    "conclusion_tr": "Sonuç olarak, yapay zeka destekli arabuluculuk ücreti hesaplama programı, kullanıcı dostu arayüzü, doğal dil desteği ve sesli asistan özelliği ile benzersiz bir çözüm sunacaktır.",
+    "conclusion_en": "In conclusion, the AI-powered mediation fee calculation program will provide a unique solution with its user-friendly interface, natural language support, and voice assistant capabilities."
 }
