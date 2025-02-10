@@ -118,3 +118,15 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .catch(error => console.error("Error loading about content:", error));
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    if (document.getElementById("project-title")) {
+        fetch("data/project3.json")
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("project-title").innerText = data.title;
+                document.getElementById("project-content").innerText = data.content;
+            })
+            .catch(error => console.error("Error loading project data:", error));
+    }
+});
