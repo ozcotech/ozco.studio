@@ -1,3 +1,15 @@
+/* 
+==================================================================
+    OZCO Studio - Portfolio Website Stylesheet
+    Author: Ozkan Comert
+    Description: This stylesheet contains the global styles for 
+                 the Ozco Studio portfolio website, including 
+                 typography, layout, navigation, contact form, 
+                 project showcase, and footer styling.
+    Last Updated: [Insert Date]
+==================================================================
+*/
+
 /* General page styling */
 body {
     font-family: "Bungee Hairline", serif;
@@ -281,6 +293,29 @@ textarea:focus::placeholder {
     align-items: center; 
     justify-content: center;
     margin-left: 5px; 
+}
+
+/* 
+=============================================
+    Contact Page Logo Styling
+    - This section styles the logo on the 
+      contact page, positioning it below 
+      the "Contact Me" heading.
+    - The logo is centered and has a slight 
+      shadow effect for better visibility.
+=============================================
+*/
+
+.contact-logo {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.contact-logo img {
+    width: 120px; /* Logonun genişliği */
+    height: auto;
+    border-radius: 10px; /* Hafif yuvarlatılmış köşeler */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
 }
 /* 📱 Mobil Ekranlar İçin (Genişliği Küçült, Sığdır) */
 @media (max-width: 768px) {
