@@ -35,6 +35,16 @@
     <meta name="keywords" content="Ozco, Portfolio, Technology, Developer, Coding, Web Development, Mediation, Mediation Fee Calculator, Legal Tech, AI-Powered Tools, Artificial Intelligence, Python Development, Legal Automation">
     <meta name="author" content="Ozkan Comert">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Sadece bu sayfa için ek düzenleme */
+        body.home {
+            overflow-y: auto; /* İçerik fazlaysa scroll etsin */
+        }
+        
+        body.home .content-wrapper {
+            padding-bottom: 20px; /* Alt boşluk */
+        }
+    </style>
 </head>
 <body class="home">
     <nav>
@@ -45,22 +55,28 @@
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
-    <h1 id="index-title">Loading...</h1>
-    <p id="index-description">Loading content...</p>
-    <div class="motivational-quote">
-        <p id="index-quote">Loading quote...</p>
+    
+    <div class="content-wrapper">
+        <h1 id="index-title">Loading...</h1>
+        <p id="index-description">Loading content...</p>
+        <div class="motivational-quote">
+            <p id="index-quote">Loading quote...</p>
+        </div>
     </div>
+    
     <footer>
         <div class="footer-container">
-            <p>© 2025 Ozco Studio. All rights reserved.</p>
-            <p>
+            <div class="footer-copyright">
+                © 2025 Ozco Studio. All rights reserved.
+            </div>
+            <div class="footer-social">
                 <a href="https://github.com/ozcotech" target="_blank">
                     <img src="assets/icons/github-icon.svg" alt="GitHub" class="social-icon">
                 </a>
                 <a href="https://linkedin.com/in/ozcotech" target="_blank">
                     <img src="assets/icons/linkedin-icon.svg" alt="LinkedIn" class="social-icon">
                 </a>
-            </p>
+            </div>
             <div class="security-info">
                 <span id="secure-connection">
                     <img src="assets/icons/lock-icon.svg" alt="Secure Connection" class="security-icon">

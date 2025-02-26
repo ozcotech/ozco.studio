@@ -11,15 +11,24 @@
 */
 
 /* General page styling */
-body {
-    font-family: "Bungee Hairline", serif;
-    background-color: #f4f4f4;
+html, body {
+    height: 100%;
     margin: 0;
     padding: 0;
-    padding-top: 60px;
+    overflow-x: hidden; /* Yatay scroll'u engelle */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-top: 60px;  /* Navbar için boşluk */
+    font-family: "Bungee Hairline", serif;
+    background-color: #f4f4f4;
     text-align: center;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
     -webkit-text-stroke: 0.8px black;
+    overflow-x: hidden; /* Yatay kaydırma çubuğunu engelle */
 }
 
 /* Heading style */
@@ -348,11 +357,9 @@ textarea:focus::placeholder {
     font-weight: bold;
     color: #696d71;
     text-align: center;
-    margin-top: 30px;
-    padding: 10px;
+    margin: 20px auto;
+    padding: 15px;
     max-width: 80%;
-    margin-left: auto;
-    margin-right: auto;
     font-style: italic;
     border-left: 4px solid #696d71;
     border-right: 4px solid #696d71;
@@ -523,53 +530,112 @@ textarea:focus::placeholder {
     opacity: 0.8; /* Hafif saydamlık efekti */
 }
 
-/* Footer Styling */
+/* FOOTER YENİDEN DÜZENLEME */
 footer {
-    position: relative; /* Position değiştirildi */
-    bottom: 0;
+    flex-shrink: 0; /* Footer küçülmesin */
     width: 100%;
-    margin-top: auto; /* İçeriğe göre en alta yapışmasını sağlar */
-    padding: 10px 0; /* İç boşluk */
-}
-/* Footer Linkleri */
-footer a {
-    font-size: 6px; /* Link yazı boyutunu da küçülttük */
-    margin: 0 2px; /* Linkler arasındaki boşluğu azalttık */
-}
-/* Eğer footer, içeriğin altında değilse, sayfanın tamamını kaplaması için: */
-html, body {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Sayfanın en az ekran yüksekliği kadar olmasını sağlar */
-}
-
-main {
-    flex: 1; /* Sayfa içeriğini genişlet, footer'ı alta it */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* İçerikle footer arasında boşluk bırak */
-}
-
-footer {
-    margin-top: auto; /* Footer'ı her zaman en aşağı iter */
     background-color: #f0ecec;
     color: #444;
     text-align: center;
-    padding: 5px 0;
-    font-size: 10px;
-    width: 100%;
-    line-height: 1;
+    padding: 10px 0; /* Padding azaltıldı */
+    font-size: 12px;
+    margin-top: 20px; /* Üst boşluk */
+    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.05); /* Hafif üst gölge */
+    position: relative; /* Normal akışta yer alsın */
 }
 
-#content {
-    min-height: calc(100vh - 100px); /* Footer dışında kalan alanı sayfa boyutuna tamamla */
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;           /* Flexbox ekleyerek içeriği yerleştirme kontrolü sağla */
+    flex-wrap: wrap;         /* Küçük ekranlarda alt alta insin */
+    align-items: center;     /* Dikeyde ortala */
+    justify-content: space-between; /* Öğeler arasında boşluk bırak - sağa yaslama */
+}
+
+/* Telif hakkı metni */
+.footer-copyright {
+    flex: 1;               /* Mümkün olduğunca geniş alan kapla */
+    text-align: left;      /* Yazıyı sola yasla */
+    min-width: 200px;      /* Minimum genişlik */
+    margin: 5px 0;         /* Dikey boşluk */
+}
+
+/* Sosyal medya ikonları container */
+.footer-social {
+    display: flex;
+    justify-content: flex-end; /* İkonları sağa yasla */
+    align-items: center;
+    gap: 10px;                /* İkonlar arası boşluk */
+    margin: 5px 0;            /* Dikey boşluk */
+}
+
+/* Sosyal ikon boyutunu ayarla */
+.social-icon {
+    width: 30px;            /* Daha küçük ikonlar */
+    height: 30px;
+    border-radius: 50%;     /* Yuvarlak ikon */
+    transition: transform 0.2s ease; /* Hover animasyonu */
+}
+
+/* Güvenlik bilgisi konumu */
+.security-info {
+    width: 100%;           /* Tam genişlik */
+    display: flex;
+    flex-direction: row;   /* Yatay hizalama */
+    align-items: center;
+    justify-content: center; /* Ortala */
+    margin-top: 5px;
+    font-size: 10px;        /* Daha küçük yazı */
+    gap: 15px;              /* Öğeler arası boşluk */
+}
+
+#secure-connection, .hosting-info {
+    display: inline-flex;   /* Yatay hizalama */
+    align-items: center;
+    margin: 0;
+}
+
+/* Responsive davranış */
+@media (max-width: 600px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-copyright, .footer-social {
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+    }
+    
+    .security-info {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+/* İçerik alanını düzenleme */
+.content-wrapper {
+    flex: 1 0 auto; /* Büyüyebilir ve içerik olduğu kadar yer kaplar */
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto; /* Ortalama */
+    padding: 0 20px;
+    box-sizing: border-box;
+    align-items: center;
+    
+    /* Bu değerler scroll çubuğu sorununu çözecek */
+    overflow-y: auto; /* İçerik taşarsa scroll etsin */
+    min-height: calc(100vh - 60px - 100px); /* Ekran yüksekliğinden navbar ve footer'ı çıkar */
+}
+
+/* Ana içeriğin minimum genişliği */
+main {
+    flex: 1;
+    width: 100%;
+    margin-bottom: 30px; /* Footer'dan önce biraz boşluk */
 }
 
 /* Loading state styling for dynamic content */
@@ -590,8 +656,8 @@ footer {
 
 /* Güvenlik bilgisi ve footer için stiller */
 .security-info {
-    margin-top: 10px;
-    font-size: 12px;
+    margin-top: 5px; /* Azaltıldı */
+    font-size: 11px; /* Biraz küçültüldü */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -600,18 +666,131 @@ footer {
 }
 
 .security-icon {
-    width: 14px;
-    height: 14px;
-    margin-right: 4px;
+    width: 12px;
+    height: 12px;
+    margin-right: 3px;
     vertical-align: middle;
 }
 
 #secure-connection {
     display: flex;
     align-items: center;
-    margin-bottom: 3px;
+    margin-bottom: 2px; /* Azaltıldı */
 }
 
 .security-info .hosting-info {
     font-style: italic;
+}
+
+/* Görünmeyen padding/margin'leri kaldır */
+* {
+    box-sizing: border-box;
+}
+
+/* Yatay taşma olabilecek elemanlar için genişlik kontrolü */
+img, video, iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ----- FOOTER YAPISI GÜNCELLEME ----- */
+footer {
+    flex-shrink: 0; 
+    width: 100%;
+    background-color: #f0ecec;
+    color: #444;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 12px;
+    margin-top: 20px;
+    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex; 
+    flex-wrap: wrap; 
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Footer üç bölümlü yapı */
+.footer-copyright {
+    flex: 1;
+    text-align: left;
+    font-size: 12px;
+    white-space: nowrap;
+    margin: 0;
+}
+
+.footer-social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 0 15px;
+}
+
+.security-info {
+    flex: 1;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end; /* Sağa hizala */
+    font-size: 10px;
+    gap: 15px;
+    white-space: nowrap;
+    color: #888;
+}
+
+/* İkonları küçült */
+.social-icon {
+    width: 24px;
+    height: 24px;
+    margin: 0 3px;
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
+    opacity: 0.8;
+}
+
+.security-icon {
+    width: 12px;
+    height: 12px;
+    margin-right: 3px;
+    vertical-align: middle;
+}
+
+#secure-connection,
+.hosting-info {
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+/* Mobil görünüm için düzenleme */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .footer-copyright,
+    .footer-social,
+    .security-info {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .security-info {
+        margin-top: 8px;
+    }
 }

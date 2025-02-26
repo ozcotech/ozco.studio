@@ -121,6 +121,54 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
+// Sayfa yüksekliği ayarlaması
+document.addEventListener('DOMContentLoaded', function() {
+    function adjustPageHeight() {
+        const contentHeight = document.querySelector('.content-wrapper').offsetHeight;
+        const windowHeight = window.innerHeight;
+        const navbarHeight = document.querySelector('nav').offsetHeight;
+        const footerHeight = document.querySelector('footer').offsetHeight;
+        
+        // Eğer içerik ekrandan küçükse, content-wrapper'ı büyütelim
+        if (contentHeight < (windowHeight - navbarHeight - footerHeight)) {
+            document.querySelector('.content-wrapper').style.minHeight = 
+                (windowHeight - navbarHeight - footerHeight - 20) + 'px';
+        }
+    }
+    
+    // Sayfa yüklendiğinde ve pencere boyutu değiştiğinde çalıştır
+    adjustPageHeight();
+    window.addEventListener('resize', adjustPageHeight);
+});
+
+// Sayfa yüksekliği ve footer dinamikleştirme
+document.addEventListener('DOMContentLoaded', function() {
+    // Eski optimizePageHeight fonksiyonunu kaldırıyoruz
+    // function optimizePageHeight() { ... }
+    
+    // Yeni basitleştirilmiş sayfa yapısı kontrolü
+    function checkPageStructure() {
+        const content = document.querySelector('.content-wrapper');
+        const footer = document.querySelector('footer');
+        
+        if (!content || !footer) return;
+        
+        // İçerik çok küçükse minimum yükseklik ekleyelim
+        if (content.offsetHeight < 300) {
+            content.style.minHeight = '50vh';
+        }
+        
+        // İçerik yüklendiğinde animasyon ekleyelim
+        setTimeout(() => {
+            content.style.opacity = 1;
+        }, 100);
+    }
+    
+    // Sayfa yüklendiğinde ve pencere boyutu değiştiğinde kontrol
+    checkPageStructure();
+    window.addEventListener('resize', checkPageStructure);
+});
+
 document.addEventListener("DOMContentLoaded", function () {
     fetch("data/about.json") 
         .then(response => response.json())
