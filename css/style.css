@@ -99,6 +99,14 @@ p {
 
 /* DESKTOP & TABLET NAVIGATION (769px and above) */
 @media (min-width: 769px) {
+    /* Reposition logo to top center of sidebar for desktop */
+    .site-logo {
+        top: 30px; /* Position from the top edge */
+        left: 100px; /* Center horizontally within the 200px navbar */
+        transform: translateX(-50%); /* Center horizontally only */
+        z-index: 1001; /* Keep above nav */
+    }
+    
     /* Fixed left navbar for desktop/tablet */
     nav {
         position: fixed;
@@ -106,12 +114,12 @@ p {
         left: 0;
         width: 200px;
         height: 100vh;
-        padding-top: 70px; /* Added padding to make room for logo */
-        background-color: rgba(128, 124, 124, 0.7); /* More transparent */
+        padding-top: 80px; /* Increased padding to make room for centered logo */
+        background-color: rgba(128, 124, 124, 0.7);
         z-index: 900;
         display: flex;
         flex-direction: column;
-        justify-content: center; /* Changed back to center from flex-start */
+        justify-content: center;
         align-items: center;
         padding: 20px 0;
         box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
@@ -254,6 +262,7 @@ p {
         height: 30px; /* Reduced size */
         top: 10px; /* Adjusted position */
         left: 10px; /* Adjusted position */
+        transform: none; /* Remove the transform */
     }
 }
 
