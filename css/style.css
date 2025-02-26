@@ -618,12 +618,13 @@ footer {
     margin-top: 20px;
     box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.05);
     position: relative;
+    z-index: 800; /* Lower than navbar (900) but high enough to appear above content */
 }
 
 .footer-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0 15px 0 220px; /* Increased left padding to move content right, past the navbar */
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -633,10 +634,11 @@ footer {
 /* Footer three-part layout */
 .footer-copyright {
     flex: 1;
-    text-align: left;
+    text-align: center; /* Changed from left to center */
     font-size: 12px;
     white-space: nowrap;
     margin: 0;
+    padding-left: 0; /* Removed left padding since we're centering */
 }
 
 .footer-social {
@@ -817,6 +819,30 @@ main {
     .content-wrapper {
         padding: 0 10px;
     }
+    
+    footer {
+        padding-left: 0;
+    }
+    
+    .footer-container {
+        padding: 0 15px; /* Reset padding for mobile */
+    }
+    
+    /* ...existing responsive footer code... */
+}
+
+/* Ensure footer remains at the bottom */
+@media (min-width: 769px) {
+    footer {
+        margin-left: 0; /* Remove negative margin */
+        width: 100%; /* Keep full width */
+        padding-left: 200px; /* Add padding equal to navbar width */
+        box-sizing: border-box; /* Include padding in width calculation */
+    }
+    
+    .footer-container {
+        padding-left: 35px; /* Reduced from 220px since the footer itself has padding now */
+    }
 }
 
 /* =========================
@@ -850,13 +876,5 @@ main {
     /* Content padding */
     .content-wrapper {
         padding-top: 50px;
-    }
-}
-
-/* Ensure footer remains at the bottom */
-@media (min-width: 769px) {
-    footer {
-        margin-left: -200px; /* Adjust for the sidebar */
-        width: calc(100% + 200px); /* Full width including sidebar area */
     }
 }
