@@ -1,10 +1,96 @@
 document.addEventListener("DOMContentLoaded", function() {
-
-    // ✨ Kopyalama Fonksiyonu (Bağımsız tanımlandı, dışarıdan çağırılabilir)
+    // ===== NAVBAR FUNCTIONALITY =====
+    // Select all navigation links for event handling
+    const navLinks = document.querySelectorAll('.nav-links a');
+    
+    // Clean up any unwanted navigation elements that might appear outside the nav container
+    const cleanupUnwantedNavLinks = () => {
+        const unwantedNavLinks = document.querySelectorAll('body > .nav-links:not(nav .nav-links)');
+        if (unwantedNavLinks.length > 0) {
+            unwantedNavLinks.forEach(element => {
+                element.style.display = 'none';
+            });
+        }
+    };
+    
+    // Run cleanup on page load
+    cleanupUnwantedNavLinks();
+    
+    // Mark the active page in the navigation
+    const currentUrl = window.location.href;
+    navLinks.forEach(link => {
+        if (currentUrl.includes(link.getAttribute('href'))) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+    
+    // Fix homepage size and viewport settings
+    function fixHomePageSize() {
+        const isHomePage = document.body.classList.contains('home');
+        
+        if (isHomePage) {
+            // Check for viewport meta tag or create it if missing
+            let viewportMeta = document.querySelector('meta[name="viewport"]');
+            if (!viewportMeta) {
+                viewportMeta = document.createElement('meta');
+                viewportMeta.setAttribute('name', 'viewport');
+                document.head.appendChild(viewportMeta);
+            }
+            
+            // Set appropriate viewport settings
+            viewportMeta.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+            
+            // Adjust content wrapper dimensions
+            const contentWrapper = document.querySelector('.content-wrapper');
+            if (contentWrapper) {
+                contentWrapper.style.maxWidth = '100%';
+                contentWrapper.style.width = '100%';
+                contentWrapper.style.boxSizing = 'border-box';
+                contentWrapper.style.margin = '0 auto';
+                contentWrapper.style.padding = '10px';
+            }
+        }
+    }
+    
+    // Fix page sizes immediately
+    fixHomePageSize();
+    
+    // Handle responsive layout adjustments
+    function handleResponsiveLayout() {
+        const isMobile = window.innerWidth <= 768;
+        const contentWrapper = document.querySelector('.content-wrapper');
+        
+        if (isMobile) {
+            // Apply mobile-specific padding to content
+            if (contentWrapper) {
+                contentWrapper.style.paddingTop = '10px';
+            }
+        } else {
+            // Apply desktop-specific padding to content
+            if (contentWrapper) {
+                contentWrapper.style.paddingTop = '20px';
+            }
+        }
+    }
+    
+    // Run responsive layout handler on page load
+    handleResponsiveLayout();
+    
+    // Update layout on window resize or device rotation
+    window.addEventListener('resize', function() {
+        cleanupUnwantedNavLinks();
+        fixHomePageSize();
+        handleResponsiveLayout();
+    });
+    
+    // ===== COPY TO CLIPBOARD FUNCTIONALITY =====
+    // Function to copy element text to clipboard
     function copyToClipboard(elementId, messageId) {
         const textElement = document.getElementById(elementId);
         if (!textElement) {
-            console.error(`❌ Element with ID '${elementId}' not found!`);
+            console.error(`Element with ID '${elementId}' not found!`);
             return;
         }
 
@@ -19,11 +105,11 @@ document.addEventListener("DOMContentLoaded", function() {
                 }, 2000);
             }
         }).catch(err => {
-            console.error("❌ Copy failed!", err);
+            console.error("Copy failed!", err);
         });
     }
 
-    // 📌 **Tüm copy ikonlarını seçip click event ekleyelim**
+    // Add click event listeners to all copy icons
     document.querySelectorAll(".copy-icon").forEach(icon => {
         icon.addEventListener("click", function() {
             const targetId = this.getAttribute("data-target");
@@ -32,12 +118,13 @@ document.addEventListener("DOMContentLoaded", function() {
             if (targetId && messageId) {
                 copyToClipboard(targetId, messageId);
             } else {
-                console.error("❌ Copy icon is missing data attributes.");
+                console.error("Copy icon is missing data attributes.");
             }
         });
     });
 
-    // ✨ Type Effect Fonksiyonu
+    // ===== FORM TYPING EFFECT =====
+    // Function to create typing effect on form fields
     function typeEffect(element, text, speed) {
         if (element.getAttribute("data-typed")) return;
         element.setAttribute("data-typed", "true");
@@ -53,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function() {
         typing();
     }
 
-    // 📝 Placeholder Effect Ekleyelim
+    // Apply typing effect to form fields on focus
     document.getElementById("name")?.addEventListener("focus", function() {
         typeEffect(this, "Enter your name...", 100);
     });
@@ -66,7 +153,8 @@ document.addEventListener("DOMContentLoaded", function() {
         typeEffect(this, "Write your message here...", 80);
     });
 
-    // ✨ Caps Lock Uyarısı
+    // ===== CAPS LOCK WARNING =====
+    // Add warning when Caps Lock is on during form input
     const inputs = document.querySelectorAll("input, textarea");
     const warning = document.getElementById("capsWarning");
 
@@ -82,7 +170,8 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // 🛠 Form Doğrulama ve Gönderme
+    // ===== FORM VALIDATION =====
+    // Handle form submission with validation
     const form = document.getElementById("contact-form");
     if (form) {
         form.addEventListener("submit", function(event) {
@@ -102,13 +191,15 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // 🌐 Navbar Scroll Efekti
+    // ===== NAVBAR SCROLL EFFECT =====
+    // Add visual feedback when scrolling
     window.addEventListener("scroll", function () {
         const navbar = document.querySelector("nav");
         navbar?.classList.toggle("scrolled", window.scrollY > 50);
     });
     
-    // 📄 Index Sayfası İçeriğini Yükle
+    // ===== LOAD INDEX PAGE CONTENT =====
+    // Fetch and display home page content from JSON file
     if (document.querySelector(".home")) {
         fetch("data/index.json")
             .then(response => response.json())
@@ -119,123 +210,90 @@ document.addEventListener("DOMContentLoaded", function() {
             })
             .catch(error => console.error("Index content loading failed:", error));
     }
-});
-
-// Sayfa yüksekliği ayarlaması
-document.addEventListener('DOMContentLoaded', function() {
-    function adjustPageHeight() {
-        const contentHeight = document.querySelector('.content-wrapper').offsetHeight;
-        const windowHeight = window.innerHeight;
-        const navbarHeight = document.querySelector('nav').offsetHeight;
-        const footerHeight = document.querySelector('footer').offsetHeight;
-        
-        // Eğer içerik ekrandan küçükse, content-wrapper'ı büyütelim
-        if (contentHeight < (windowHeight - navbarHeight - footerHeight)) {
-            document.querySelector('.content-wrapper').style.minHeight = 
-                (windowHeight - navbarHeight - footerHeight - 20) + 'px';
-        }
+    
+    // About sayfası içeriği
+    const aboutTitle = document.getElementById("about-title");
+    const aboutContent = document.getElementById("about-content");
+    
+    if (aboutTitle && aboutContent) {
+        fetch("data/about.json") 
+            .then(response => response.json())
+            .then(data => {
+                aboutTitle.innerText = data.title;
+                aboutContent.innerHTML = data.content.replace(/\n\n/g, "</p><p>").replace(/\n/g, "<br>");
+            })
+            .catch(error => console.error("Error loading about content:", error));
     }
     
-    // Sayfa yüklendiğinde ve pencere boyutu değiştiğinde çalıştır
-    adjustPageHeight();
-    window.addEventListener('resize', adjustPageHeight);
-});
-
-// Sayfa yüksekliği ve footer dinamikleştirme
-document.addEventListener('DOMContentLoaded', function() {
-    // Eski optimizePageHeight fonksiyonunu kaldırıyoruz
-    // function optimizePageHeight() { ... }
-    
-    // Yeni basitleştirilmiş sayfa yapısı kontrolü
-    function checkPageStructure() {
-        const content = document.querySelector('.content-wrapper');
-        const footer = document.querySelector('footer');
-        
-        if (!content || !footer) return;
-        
-        // İçerik çok küçükse minimum yükseklik ekleyelim
-        if (content.offsetHeight < 300) {
-            content.style.minHeight = '50vh';
-        }
-        
-        // İçerik yüklendiğinde animasyon ekleyelim
-        setTimeout(() => {
-            content.style.opacity = 1;
-        }, 100);
+    // Project3 içeriği
+    const projectTitle = document.getElementById("project-title");
+    if (projectTitle) {
+        fetch("data/project3.json")
+            .then(response => response.json())
+            .then(data => {
+                const lang = document.documentElement.lang === "tr" ? "tr" : "en";
+                
+                projectTitle.textContent = data[`title_${lang}`];
+                
+                // Diğer proje içeriklerini doldur
+                const elements = [
+                    "project-introduction", "phase-1-title", "phase-1-description",
+                    "phase-2-title", "phase-2-description", "example", 
+                    "final-stage-title", "final-stage-description",
+                    "business-model", "future-potential", "conclusion"
+                ];
+                
+                elements.forEach(id => {
+                    const element = document.getElementById(id);
+                    if (element && data[`${id.replace(/-/g, "_")}_${lang}`]) {
+                        element.textContent = data[`${id.replace(/-/g, "_")}_${lang}`];
+                    }
+                });
+                
+                // Liste oluşturanlar için özel işlem
+                const lists = {
+                    "target-audience": "target_audience",
+                    "ai-capabilities": "ai_capabilities"
+                };
+                
+                for (const [listId, dataKey] of Object.entries(lists)) {
+                    const list = document.getElementById(listId);
+                    if (list && data[`${dataKey}_${lang}`]) {
+                        list.innerHTML = "";
+                        data[`${dataKey}_${lang}`].forEach(item => {
+                            const li = document.createElement("li");
+                            li.innerHTML = item;
+                            list.appendChild(li);
+                        });
+                    }
+                }
+            })
+            .catch(error => console.error("JSON yüklenirken hata oluştu:", error));
     }
     
-    // Sayfa yüklendiğinde ve pencere boyutu değiştiğinde kontrol
-    checkPageStructure();
-    window.addEventListener('resize', checkPageStructure);
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-    fetch("data/about.json") 
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById("about-title").innerText = data.title;
-            document.getElementById("about-content").innerHTML = data.content.replace(/\n\n/g, "</p><p>").replace(/\n/g, "<br>");
-        })
-        .catch(error => console.error("Error loading about content:", error));
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-    fetch("data/project3.json")  // JSON dosyanın yolunu kontrol et
-        .then(response => response.json())
-        .then(data => {
-            const lang = document.documentElement.lang === "tr" ? "tr" : "en"; // Dil belirleme (TR veya EN)
-
-            document.getElementById("project-title").textContent = data[`title_${lang}`];
-            document.getElementById("project-introduction").textContent = data[`introduction_${lang}`];
-            
-            document.getElementById("phase-1-title").textContent = data[`phase_1_title_${lang}`];
-            document.getElementById("phase-1-description").textContent = data[`phase_1_description_${lang}`];
-
-            // Hedef kitleyi liste halinde ekleme
-            const targetAudienceList = document.getElementById("target-audience");
-            targetAudienceList.innerHTML = ""; // Önce temizle
-            data[`target_audience_${lang}`].forEach(item => {
-                const li = document.createElement("li");
-                li.innerHTML = item;
-                targetAudienceList.appendChild(li);
-            });
-
-            document.getElementById("phase-2-title").textContent = data[`phase_2_title_${lang}`];
-            document.getElementById("phase-2-description").textContent = data[`phase_2_description_${lang}`];
-
-            // Örnek cümleyi alıntı (blockquote) içinde göster
-            document.getElementById("example").textContent = data[`example_${lang}`];
-
-            // Yapay zeka yeteneklerini liste halinde ekleme
-            const aiCapabilitiesList = document.getElementById("ai-capabilities");
-            aiCapabilitiesList.innerHTML = ""; // Önce temizle
-            data[`ai_capabilities_${lang}`].forEach(item => {
-                const li = document.createElement("li");
-                li.innerHTML = item;
-                aiCapabilitiesList.appendChild(li);
-            });
-
-            document.getElementById("final-stage-title").textContent = data[`final_stage_${lang}`];
-            document.getElementById("final-stage-description").textContent = data[`final_stage_description_${lang}`];
-
-            document.getElementById("business-model").textContent = data[`business_model_${lang}`];
-            document.getElementById("future-potential").textContent = data[`future_potential_${lang}`];
-            document.getElementById("conclusion").textContent = data[`conclusion_${lang}`];
-
-        })
-        .catch(error => console.error("JSON yüklenirken hata oluştu:", error));
-});
-
-// SSL connection check
-document.addEventListener('DOMContentLoaded', function() {
+    // SSL durumu kontrolü
     const secureConnection = document.getElementById('secure-connection');
-    
     if (secureConnection) {
         if (window.location.protocol === 'https:') {
-            secureConnection.style.color = '#4CAF50'; // Green for secure
+            secureConnection.style.color = '#4CAF50';
         } else {
-            secureConnection.style.color = '#F44336'; // Red for insecure
+            secureConnection.style.color = '#F44336';
             secureConnection.innerHTML = '<img src="assets/icons/unlock-icon.svg" alt="Insecure Connection" class="security-icon"> Insecure Connection';
         }
     }
+
+    // Content wrapper height ayarlaması
+    function adjustContentHeight() {
+        const contentWrapper = document.querySelector('.content-wrapper');
+        if (!contentWrapper) return;
+        
+        const windowHeight = window.innerHeight;
+        const footerHeight = document.querySelector('footer')?.offsetHeight || 0;
+        
+        // Minimum içerik yüksekliği ayarı
+        contentWrapper.style.minHeight = `${windowHeight - footerHeight - 60}px`; // 60px navbar için
+    }
+    
+    adjustContentHeight();
+    window.addEventListener('resize', adjustContentHeight);
 });

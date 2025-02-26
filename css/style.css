@@ -6,7 +6,7 @@
                  the Ozco Studio portfolio website, including 
                  typography, layout, navigation, contact form, 
                  project showcase, and footer styling.
-    Last Updated: [Insert Date]
+    Last Updated: [Current Date]
 ==================================================================
 */
 
@@ -15,31 +15,33 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* Yatay scroll'u engelle */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    box-sizing: border-box;
 }
 
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    padding-top: 60px;  /* Navbar için boşluk */
     font-family: "Bungee Hairline", serif;
     background-color: #f4f4f4;
     text-align: center;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
     -webkit-text-stroke: 0.8px black;
-    overflow-x: hidden; /* Yatay kaydırma çubuğunu engelle */
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
-/* Heading style */
+/* Heading styles */
 .home h1 {
     font-family: 'Doto', sans-serif;
 }    
+
 h1, h2, h3, p {
     font-family: "Bungee Hairline", sans-serif;
     color: #333;
     margin-top: 20px;
 }
+
 h1 {
     font-size: 36px;
     font-weight: 700;
@@ -52,6 +54,7 @@ h2 {
 h3 {
     font-size: 20px;
 }
+
 /* Paragraph style */
 p {
     font-family: "Bungee Hairline", serif;
@@ -59,84 +62,209 @@ p {
     font-size: 18px;
 }
 
-/* Navbar - General Styling */
-nav {
-    background-color: rgba(128, 124, 124, 0.9);
-    height: auto; /* Otomatik yükseklik ayarla */
-    padding: 5px 0; /* Dikey paddingi azalttık */
-    text-align: center;
-    font-family: "Bungee Hairline", serif;
+/* =========================
+   NAVIGATION STYLES 
+   ========================= */
+
+/* Hide old menu elements */
+.hamburger-menu, .overlay, .mobile-navbar {
+    display: none !important;
+}
+
+/* Logo placement - top right corner for all devices */
+.site-logo {
     position: fixed;
+    top: 15px;
+    right: 15px; /* Changed from left to right */
+    width: 40px;
+    height: 40px;
+    z-index: 9999;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.8);
+    padding: 2px;
+    transition: all 0.3s ease;
+}
+
+.site-logo:hover {
+    transform: scale(1.05);
+}
+
+.site-logo img {
     width: 100%;
-    top: 0;
-    left: 0;
-    transition: background-color 0.3s ease-in-out;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap; /* Taşmayı önlemek için satır içine sığdırır */
-    overflow-x: auto;
-    white-space: nowrap;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 4px;
 }
 
-/* Navbar scroll edildikçe şeffaflaşacak */
-nav.scrolled {
-    background-color: rgba(255, 255, 255, 0.6); /* Hafif beyaza dönük şeffaf */
-    height: 35px; /* Navbar küçülsün */
-    padding: 15px 0; /* Daha az boşluk */
-    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1); /* Hafif bir gölge efekti */
+/* DESKTOP & TABLET NAVIGATION (769px and above) */
+@media (min-width: 769px) {
+    /* Fixed left navbar for desktop/tablet */
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 200px;
+        height: 100vh;
+        background-color: rgba(128, 124, 124, 0.7); /* More transparent */
+        z-index: 900;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+        transform: none !important;
+    }
+    
+    /* Shift content to accommodate left navbar */
+    body {
+        margin-left: 200px;
+        padding-top: 0 !important;
+    }
+    
+    .content-wrapper {
+        margin-left: 20px; /* Extra margin for content */
+    }
+    
+    /* Oval buttons for nav links */
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 80%;
+    }
+    
+    .nav-links li {
+        width: 100%;
+    }
+    
+    .nav-links a {
+        display: flex;
+        align-items: center;
+        padding: 10px 15px;
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 20px; /* Oval button shape */
+        transition: all 0.2s ease;
+        font-weight: 600;
+    }
+    
+    .nav-links a:hover, 
+    .nav-links a.active {
+        background-color: rgba(255, 255, 255, 0.4);
+        transform: scale(1.05);
+    }
+    
+    /* Navigation icons */
+    .nav-icon {
+        display: inline-block;
+        margin-right: 8px;
+        font-size: 16px;
+    }
 }
 
-/* Navbar link rengi scroll sonrası */
-nav.scrolled a {
-    color: black; /* Scroll sonrası link rengi */
+/* MOBILE NAVIGATION (768px and below) */
+@media (max-width: 768px) {
+    /* Simple top navigation for mobile */
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 50px;
+        background-color: rgba(128, 124, 124, 0.9);
+        z-index: 900;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Horizontal layout for mobile nav links */
+    .nav-links {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 80%; /* Don't take full width */
+        margin: 0 auto;
+        padding: 0;
+        list-style: none;
+    }
+    
+    .nav-links li {
+        margin: 0;
+        padding: 0;
+    }
+    
+    /* Simple links for mobile */
+    .nav-links a {
+        display: inline-block;
+        padding: 6px 10px;
+        color: white;
+        text-decoration: none;
+        font-size: 12px;
+        border-radius: 15px; /* Rounded corners */
+        transition: background-color 0.2s;
+        font-weight: 600;
+    }
+    
+    .nav-links a:hover,
+    .nav-links a.active {
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+    
+    /* Hide icons on mobile */
+    .nav-icon {
+        display: none;
+    }
+    
+    /* Content padding for mobile */
+    body {
+        padding-top: 60px; /* Space for the top navigation */
+        margin-left: 0;
+    }
+    
+    .content-wrapper {
+        margin-left: 0;
+        width: 95%;
+        max-width: 95%;
+        padding-top: 10px;
+    }
 }
 
-/* Navbar için düzenleme */
-.nav-links {
-    display: flex;
-    list-style: none;
-    padding: 0 15px; /* Kenarlardan uzaklaştırma */
-    flex-wrap: wrap;
-    justify-content: center; /* Merkeze hizalama */
-    align-items: center;
-    gap: 10px; /* Linkler arasında boşluk */
+/* Extra small mobile screens */
+@media (max-width: 380px) {
+    .nav-links a {
+        padding: 4px 6px;
+        font-size: 10px;
+    }
+    
+    .site-logo {
+        width: 30px;
+        height: 30px;
+        top: 10px;
+        right: 10px;
+    }
 }
 
-.nav-links li {
-    margin: 0 20px;
-}
-
-.nav-links a {
-    color: black;
-    text-decoration: none;
-    font-size: 16px; /* Yazı boyutunu biraz küçült */
-    font-weight: 600;
-    padding: 8px 10px; /* İç boşluğu azalt */
-    white-space: nowrap;
-    border-radius: 4px; /* Hafif köşe yuvarlama */
-    transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
-}
-
-/* Hover efekti */
-.nav-links a:hover {
-    color: white;
-    background-color: #716f6f; /* Hover sırasında arka plan rengi */
-    transform: scale(1.1);
-}
-
-/* Contact Info Styling */
+/* =========================
+   CONTACT INFO STYLING 
+   ========================= */
 .contact-info {
     display: flex;
     flex-direction: column;
-    align-items: center; /* İçeriği ortala */
+    align-items: center;
     justify-content: center;
     text-align: center;
     margin-top: 10px;
 }
-
 
 .contact-info a {
     color: #505d6a;
@@ -147,19 +275,21 @@ nav.scrolled a {
     text-decoration: underline;
 }
 
-/* Contact Form Container */
+/* =========================
+   CONTACT FORM STYLING 
+   ========================= */
 form {
     max-width: 500px;
     margin: 40px auto;
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 10px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     text-align: left;
-    box-sizing: border-box; /* İçerik ve padding dahil edilecek */
+    box-sizing: border-box;
 }
 
-/* Input and Textarea - More Visible */
+/* Input and textarea fields */
 input, textarea {
     width: 100%;
     box-sizing: border-box;
@@ -176,22 +306,21 @@ input, textarea {
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); 
 }
 
-
-/* Ensure proper alignment of labels */
+/* Label alignment */
 label {
     display: block;
     margin-top: 10px;
     font-weight: bold;
 }
 
-/* Active input effect */
+/* Focus effect for inputs */
 input:focus, textarea:focus {
     border-color: #5a7a9c;
     box-shadow: 0px 0px 10px rgba(0, 123, 255, 0.4);
     outline: none;
 }
 
-/* Button Styling */
+/* Button styling */
 button {
     background-color: #333;
     color: white;
@@ -207,23 +336,23 @@ button {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Button Hover Effect */
+/* Button hover effect */
 button:hover {
     background-color: #55718d; 
     transform: scale(1.05); 
     box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2); 
 }
 
-/* Default placeholder style (before interaction) */
+/* Placeholder styling */
 input::placeholder,
 textarea::placeholder {
-    font-family: "Bungee Hairline", sans-serif; /* Default font */
-    font-weight: 300; /* Lighter text */
+    font-family: "Bungee Hairline", sans-serif;
+    font-weight: 300;
     font-size: 12px;
-    color: #888; /* Slightly gray */
+    color: #888;
 }
 
-/* Typing effect for input placeholders when focused */
+/* Typing effect animation */
 @keyframes typingEffect {
     from { width: 0; }
     to { width: 100%; }
@@ -231,7 +360,7 @@ textarea::placeholder {
 
 input:focus::placeholder,
 textarea:focus::placeholder {
-    font-family: "Bungee Hairline", sans-serif; /* Apply Bungee Hairline during typing effect */
+    font-family: "Bungee Hairline", sans-serif;
     font-size: 12px;
     color: #666;
     overflow: hidden;
@@ -241,22 +370,9 @@ textarea:focus::placeholder {
     animation: typingEffect 2s steps(20, end) forwards;
 }
 
-/* Copy Button Styling */
-.copy-btn {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    margin-left: 8px;
-    color: #007bff;
-    transition: color 0.2s ease-in-out;
-}
-
-.copy-btn:hover {
-    color: #0056b3;
-}
-
-/* Copy Icon Styling */
+/* =========================
+   COPY FEATURE STYLING 
+   ========================= */
 .copy-icon {
     width: 18px; 
     height: 18px;
@@ -273,7 +389,6 @@ textarea:focus::placeholder {
     opacity: 0.6; 
 }
 
-/* Copied Message Styling */
 .copy-message {
     font-size: 14px;
     color: green;
@@ -286,7 +401,6 @@ textarea:focus::placeholder {
     transform: translateY(-50%);
 }
 
-/* Ensure text and icons are properly aligned */
 .contact-info p {
     margin-bottom: 0px;
     position: relative;
@@ -297,6 +411,7 @@ textarea:focus::placeholder {
     width: 100%;
     line-height: 1.2;
 }
+
 .icon-container {
     display: flex;
     align-items: center; 
@@ -304,54 +419,24 @@ textarea:focus::placeholder {
     margin-left: 5px; 
 }
 
-/* 
-=============================================
-    Contact Page Logo Styling
-    - This section styles the logo on the 
-      contact page, positioning it below 
-      the "Contact Me" heading.
-    - The logo is centered and has a slight 
-      shadow effect for better visibility.
-=============================================
-*/
-
+/* =========================
+   CONTACT PAGE LOGO 
+   ========================= */
 .contact-logo {
     text-align: center;
     margin: 20px 0;
 }
 
 .contact-logo img {
-    width: 120px; /* Logonun genişliği */
+    width: 120px;
     height: auto;
-    border-radius: 10px; /* Hafif yuvarlatılmış köşeler */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
-}
-/* 📱 Mobil Ekranlar İçin (Genişliği Küçült, Sığdır) */
-@media (max-width: 768px) {
-    .nav-links {
-        display: flex;
-        flex-direction: row; /* Yatay hizalama */
-        justify-content: space-evenly; /* Yazıları eşit şekilde dağıt */
-        align-items: center; /* Dikeyde ortala */
-        padding: 2px 0; /* Daha dengeli bir üst-alt boşluk */
-        gap: 2px; /* Daha doğal bir aralık */
-    }
-
-    .nav-links a {
-        text-align: center; /* Her link yazısını ortala */
-        font-size: 12px; /* Mobil için daha uygun bir boyut */
-        padding: 2px 5px; /* Yazılar etrafında biraz daha boşluk */
-    }
-
-    nav {
-        display: flex; /* Flexbox özelliği ekleyelim */
-        flex-direction: row; /* Yatay hizalama */
-        justify-content: center; /* Elemanları ortala */
-        align-items: center; /* Dikeyde ortala */
-        padding: 2px 0; /* Üst ve alt boşluk dengesi */
-    }
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* =========================
+   MOTIVATIONAL QUOTE 
+   ========================= */
 .motivational-quote {
     font-size: 22px;
     font-weight: bold;
@@ -365,32 +450,33 @@ textarea:focus::placeholder {
     border-right: 4px solid #696d71;
 }
 
-/* Projects Section */
+/* =========================
+   PROJECTS SECTION 
+   ========================= */
 #projects {
     padding: 40px 20px;
     text-align: center;
-    
-    
-  }
-  
-    #projects h1, h2, h3 {
+}
+
+#projects h1, h2, h3 {
     font-family: "Bungee Hairline", serif;
     font-size: 28px;
     margin-bottom: 10px;
     margin-top: 5px;
-  }
-  
-  /* Grid for Projects */
-  .projects-grid {
+}
+
+/* Projects grid layout */
+.projects-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 20px;
-  }
-  .project-card h1, h2, h3 {
-    font-family: "Bungee Hairline" !important;
-  }
+}
 
-  @media (min-width: 768px) {
+.project-card h1, h2, h3 {
+    font-family: "Bungee Hairline" !important;
+}
+
+@media (min-width: 768px) {
     .projects-grid {
         grid-template-columns: 1fr 1fr; 
     }
@@ -402,8 +488,8 @@ textarea:focus::placeholder {
     }
 }
 
-  /* Individual Project Card */
-  .project-card {
+/* Project card styling */
+.project-card {
     display: flex; 
     background: #f4f4f4;
     border-radius: 50px;
@@ -417,57 +503,43 @@ textarea:focus::placeholder {
     display: block; 
     position: relative;
     overflow: hidden;
-    
-  }
-  
-  /* Card Hover Effects */
-  .project-card:hover {
+}
+
+/* Card hover effects */
+.project-card:hover {
     transform: translateY(-10px);
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Card Content */
-  .card-content {
+}
+
+/* Card content */
+.card-content {
     padding: 20px;
     text-align: left;
-  }
-  
-  .card-content h3 {
+}
+
+.card-content h3 {
     font-size: 20px;
     margin-bottom: 10px;
-  }
-  
-  .card-content p {
+}
+
+.card-content p {
     font-size: 16px;
     color: #555;
     line-height: 1.5;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .projects-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .projects-grid {
-      grid-template-columns: 1fr;
-    }
-  }
+}
 
 .project-card h2 {
-    margin-bottom: 10px; /* Başlık ve içerik arasında boşluk */
+    margin-bottom: 10px;
 }
 
 .project-card p {
     margin: 0; 
-    margin-top: auto; /* Yazıyı en alta iter */
-    font-size: 14px; /* Yazı boyutunu ayarla */
+    margin-top: auto;
+    font-size: 14px;
     color: #555;
 }
 
-/* Project Images */
+/* Project images */
 .project-image {
     width: 100%;
     height: auto;
@@ -476,7 +548,7 @@ textarea:focus::placeholder {
     display: block;
 }
 
-/* Individual Project Page Styling */
+/* Individual project page styling */
 .project-detail-image {
     width: 80%;
     max-width: 600px;
@@ -485,160 +557,146 @@ textarea:focus::placeholder {
     margin: 10px auto;
     border-radius: 15px;
 }
-/* Project Details Styling */
+
+/* =========================
+   PROJECT DETAILS 
+   ========================= */
 .project-details-container {
-    display: flex; /* Resim ve metni yan yana hizala */
-    align-items: center; /* Dikeyde ortala */
-    justify-content: start; /* Resmi sola, metni sağa hizala */
-    gap: 20px; /* Resim ve metin arasındaki boşluk */
-    max-width: 80%; /* İçeriğin ekranı tam kaplamasını engelle */
-    margin: 0 auto; /* Ortalamak için */
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 20px;
+    max-width: 80%;
+    margin: 0 auto;
 }
 
 .project-detail-image {
-    width: 40%; /* Resmin genişliği */
+    width: 40%;
     height: auto;
     border-radius: 15px;
 }
 
 .project-details-text {
-    width: 55%; /* Yazı alanının genişliği */
-    text-align: left; /* Metni sola hizala */
+    width: 55%;
+    text-align: left;
 }
 
-
-/*------------------- About Section -------------------*/
+/* =========================
+   ABOUT SECTION 
+   ========================= */
 #about-content {
-    text-align: center; /* Yazıları ortala */
-    max-width: 60%; /* Çok geniş olmaması için */
-    margin: 0 auto; /* Ortalamak için */
-    line-height: 1.6; /* Daha iyi okunabilirlik */
-    font-size: 18px; /* Yazıyı biraz büyüt */
+    text-align: center;
+    max-width: 60%;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-size: 18px;
 }
 
-/*------------------- Footer Styling -------------------*/
+/* =========================
+   FOOTER STYLING 
+   ========================= */
 .social-icon, .logo {
-    border-radius: 50%; /* Logoyu yuvarlak yapar */
-    width: 50px; /* Genişlik ayarla */
-    height: 50px; /* Yükseklik ayarla */
-    object-fit: cover; /* Kırpmayı önlemek için */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
 }
 
-/* Hover Efekti */
 .social-icon:hover {
-    transform: scale(1.2); /* İkonu biraz büyüt */
-    opacity: 0.8; /* Hafif saydamlık efekti */
+    transform: scale(1.2);
+    opacity: 0.8;
 }
 
-/* FOOTER YENİDEN DÜZENLEME */
 footer {
-    flex-shrink: 0; /* Footer küçülmesin */
+    flex-shrink: 0;
     width: 100%;
     background-color: #f0ecec;
     color: #444;
     text-align: center;
-    padding: 10px 0; /* Padding azaltıldı */
+    padding: 10px 0;
     font-size: 12px;
-    margin-top: 20px; /* Üst boşluk */
-    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.05); /* Hafif üst gölge */
-    position: relative; /* Normal akışta yer alsın */
+    margin-top: 20px;
+    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.05);
+    position: relative;
 }
 
 .footer-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 15px;
-    display: flex;           /* Flexbox ekleyerek içeriği yerleştirme kontrolü sağla */
-    flex-wrap: wrap;         /* Küçük ekranlarda alt alta insin */
-    align-items: center;     /* Dikeyde ortala */
-    justify-content: space-between; /* Öğeler arasında boşluk bırak - sağa yaslama */
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
 }
 
-/* Telif hakkı metni */
+/* Footer three-part layout */
 .footer-copyright {
-    flex: 1;               /* Mümkün olduğunca geniş alan kapla */
-    text-align: left;      /* Yazıyı sola yasla */
-    min-width: 200px;      /* Minimum genişlik */
-    margin: 5px 0;         /* Dikey boşluk */
+    flex: 1;
+    text-align: left;
+    font-size: 12px;
+    white-space: nowrap;
+    margin: 0;
 }
 
-/* Sosyal medya ikonları container */
 .footer-social {
     display: flex;
-    justify-content: flex-end; /* İkonları sağa yasla */
+    justify-content: center;
     align-items: center;
-    gap: 10px;                /* İkonlar arası boşluk */
-    margin: 5px 0;            /* Dikey boşluk */
+    gap: 10px;
+    margin: 0 15px;
 }
 
-/* Sosyal ikon boyutunu ayarla */
 .social-icon {
-    width: 30px;            /* Daha küçük ikonlar */
+    width: 30px;
     height: 30px;
-    border-radius: 50%;     /* Yuvarlak ikon */
-    transition: transform 0.2s ease; /* Hover animasyonu */
+    border-radius: 50%;
+    transition: transform 0.2s ease;
 }
 
-/* Güvenlik bilgisi konumu */
 .security-info {
-    width: 100%;           /* Tam genişlik */
+    flex: 1;
+    margin: 0;
     display: flex;
-    flex-direction: row;   /* Yatay hizalama */
+    flex-direction: row;
     align-items: center;
-    justify-content: center; /* Ortala */
-    margin-top: 5px;
-    font-size: 10px;        /* Daha küçük yazı */
-    gap: 15px;              /* Öğeler arası boşluk */
+    justify-content: flex-end;
+    font-size: 10px;
+    gap: 15px;
+    white-space: nowrap;
+    color: #888;
 }
 
 #secure-connection, .hosting-info {
-    display: inline-flex;   /* Yatay hizalama */
+    display: inline-flex;
     align-items: center;
     margin: 0;
 }
 
-/* Responsive davranış */
-@media (max-width: 600px) {
-    .footer-container {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .footer-copyright, .footer-social {
-        justify-content: center;
-        text-align: center;
-        width: 100%;
-    }
-    
-    .security-info {
-        flex-direction: column;
-        gap: 5px;
-    }
-}
-
-/* İçerik alanını düzenleme */
+/* =========================
+   CONTENT WRAPPER 
+   ========================= */
 .content-wrapper {
-    flex: 1 0 auto; /* Büyüyebilir ve içerik olduğu kadar yer kaplar */
+    flex: 1 0 auto;
     width: 100%;
     max-width: 100%;
-    margin: 0 auto; /* Ortalama */
+    margin: 0 auto;
     padding: 0 20px;
     box-sizing: border-box;
     align-items: center;
-    
-    /* Bu değerler scroll çubuğu sorununu çözecek */
-    overflow-y: auto; /* İçerik taşarsa scroll etsin */
-    min-height: calc(100vh - 60px - 100px); /* Ekran yüksekliğinden navbar ve footer'ı çıkar */
+    overflow-y: auto;
+    min-height: calc(100vh - 160px);
 }
 
-/* Ana içeriğin minimum genişliği */
 main {
     flex: 1;
     width: 100%;
-    margin-bottom: 30px; /* Footer'dan önce biraz boşluk */
+    margin-bottom: 30px;
 }
 
-/* Loading state styling for dynamic content */
+/* =========================
+   LOADING STATE STYLING 
+   ========================= */
 #index-title.loading,
 #index-description.loading,
 #index-quote.loading {
@@ -654,10 +712,12 @@ main {
     100% { background-position: 0% 50%; }
 }
 
-/* Güvenlik bilgisi ve footer için stiller */
+/* =========================
+   SECURITY INFO STYLING 
+   ========================= */
 .security-info {
-    margin-top: 5px; /* Azaltıldı */
-    font-size: 11px; /* Biraz küçültüldü */
+    margin-top: 5px;
+    font-size: 11px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -675,122 +735,128 @@ main {
 #secure-connection {
     display: flex;
     align-items: center;
-    margin-bottom: 2px; /* Azaltıldı */
+    margin-bottom: 2px;
 }
 
 .security-info .hosting-info {
     font-style: italic;
 }
 
-/* Görünmeyen padding/margin'leri kaldır */
-* {
-    box-sizing: border-box;
-}
-
-/* Yatay taşma olabilecek elemanlar için genişlik kontrolü */
-img, video, iframe {
-    max-width: 100%;
-    height: auto;
-}
-
-/* ----- FOOTER YAPISI GÜNCELLEME ----- */
-footer {
-    flex-shrink: 0; 
-    width: 100%;
-    background-color: #f0ecec;
-    color: #444;
-    text-align: center;
-    padding: 10px 0;
-    font-size: 12px;
-    margin-top: 20px;
-    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.05);
-    position: relative;
-}
-
-.footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-    display: flex; 
-    flex-wrap: wrap; 
-    align-items: center;
-    justify-content: space-between;
-}
-
-/* Footer üç bölümlü yapı */
-.footer-copyright {
-    flex: 1;
-    text-align: left;
-    font-size: 12px;
-    white-space: nowrap;
-    margin: 0;
-}
-
-.footer-social {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin: 0 15px;
-}
-
-.security-info {
-    flex: 1;
-    margin: 0;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end; /* Sağa hizala */
-    font-size: 10px;
-    gap: 15px;
-    white-space: nowrap;
-    color: #888;
-}
-
-/* İkonları küçült */
-.social-icon {
-    width: 24px;
-    height: 24px;
-    margin: 0 3px;
-    border-radius: 50%;
-    transition: transform 0.2s ease;
-}
-
-.social-icon:hover {
-    transform: scale(1.2);
-    opacity: 0.8;
-}
-
-.security-icon {
-    width: 12px;
-    height: 12px;
-    margin-right: 3px;
-    vertical-align: middle;
-}
-
-#secure-connection,
-.hosting-info {
-    display: flex;
-    align-items: center;
-    margin: 0;
-}
-
-/* Mobil görünüm için düzenleme */
+/* =========================
+   RESPONSIVE ADJUSTMENTS 
+   ========================= */
 @media (max-width: 768px) {
+    /* Footer adjustments */
     .footer-container {
         flex-direction: column;
-        gap: 8px;
-    }
-    
-    .footer-copyright,
-    .footer-social,
-    .security-info {
-        width: 100%;
-        justify-content: center;
         text-align: center;
     }
     
+    .footer-copyright, .footer-social {
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+    }
+    
     .security-info {
-        margin-top: 8px;
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    /* Project details adjustments */
+    .project-details-container {
+        flex-direction: column;
+        gap: 15px;
+        max-width: 95%;
+        margin: 0 10px;
+    }
+    
+    .project-detail-image {
+        width: 100%;
+    }
+    
+    .project-details-text {
+        width: 100%;
+        padding: 0 5px;
+    }
+    
+    /* Content adjustments */
+    .content-wrapper {
+        margin-bottom: 20px;
+    }
+    
+    /* About content adjustments */
+    #about-content {
+        max-width: 95%;
+    }
+    
+    /* Typography adjustments */
+    h1 {
+        font-size: 28px;
+    }
+    
+    h2 {
+        font-size: 22px;
+    }
+    
+    h3 {
+        font-size: 18px;
+    }
+    
+    p, .motivational-quote {
+        font-size: 16px;
+    }
+    
+    /* Quote adjustments */
+    .motivational-quote {
+        max-width: 95%;
+        padding: 10px;
+    }
+    
+    /* Content wrapper adjustments */
+    .content-wrapper {
+        padding: 0 10px;
+    }
+}
+
+/* =========================
+   SMALLER MOBILE SCREENS 
+   ========================= */
+@media (max-width: 480px) {
+    /* Project details */
+    .project-details-container {
+        flex-direction: column;
+        gap: 10px;
+        max-width: 95%;
+        margin: 0 10px;
+    }
+    
+    .project-detail-image {
+        width: 90%;
+        margin-bottom: 15px;
+    }
+    
+    .project-details-text {
+        width: 100%;
+        padding: 0 5px;
+    }
+    
+    /* Form elements */
+    input, textarea, button {
+        padding: 10px;
+        margin-bottom: 15px;
+    }
+    
+    /* Content padding */
+    .content-wrapper {
+        padding-top: 50px;
+    }
+}
+
+/* Ensure footer remains at the bottom */
+@media (min-width: 769px) {
+    footer {
+        margin-left: -200px; /* Adjust for the sidebar */
+        width: calc(100% + 200px); /* Full width including sidebar area */
     }
 }

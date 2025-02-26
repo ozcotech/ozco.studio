@@ -11,20 +11,33 @@
     <meta name="keywords" content="Ozco, Portfolio, Technology, Developer">
     <meta name="author" content="Ozkan Comert">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        @media (min-width: 769px) {
+            body {
+                margin-left: 200px; /* Sol navbar genişliği */
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Site Logo -->
+    <a href="index.html" class="site-logo">
+        <img src="assets/icons/ozco-logo.png" alt="Ozco Studio Logo">
+    </a>
+    
+    <!-- Sabit Navbar -->
     <nav>
         <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="index.html"><i class="nav-icon">🏠</i>Home</a></li>
+            <li><a href="about.html"><i class="nav-icon">👤</i>About</a></li>
+            <li><a href="projects.html"><i class="nav-icon">📂</i>Projects</a></li>
+            <li><a href="contact.html"><i class="nav-icon">📧</i>Contact</a></li>
         </ul>
     </nav>
 
     <div class="content-wrapper">
         <!-- About Text Section -->
-        <h1 id="about-title"></h1>
+        <h1 id="about-title" class="page-title"></h1>
         <p id="about-content"></p>
     </div>
 

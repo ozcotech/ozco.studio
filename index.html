@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=5.0, user-scalable=yes">
     <!-- Open Graph / Facebook -->
     <meta property="og:title" content="Ozco Studio">
     <meta property="og:description" content="Explore my personal portfolio, where I share my projects, ideas, and tech-related insights!">
@@ -34,6 +34,7 @@
     <meta name="description" content="Ozco Studio - Explore my portfolio where I showcase my projects, ideas, and tech-related insights.">
     <meta name="keywords" content="Ozco, Portfolio, Technology, Developer, Coding, Web Development, Mediation, Mediation Fee Calculator, Legal Tech, AI-Powered Tools, Artificial Intelligence, Python Development, Legal Automation">
     <meta name="author" content="Ozkan Comert">
+    <meta name="format-detection" content="telephone=no">
     <link rel="stylesheet" href="css/style.css">
     <style>
         /* Sadece bu sayfa için ek düzenleme */
@@ -44,20 +45,32 @@
         body.home .content-wrapper {
             padding-bottom: 20px; /* Alt boşluk */
         }
+
+        @media (min-width: 769px) {
+            body.home {
+                margin-left: 200px; /* Sol navbar genişliği */
+            }
+        }
     </style>
 </head>
 <body class="home">
+    <!-- Site Logo -->
+    <a href="index.html" class="site-logo">
+        <img src="assets/icons/ozco-logo.png" alt="Ozco Studio Logo">
+    </a>
+    
+    <!-- Ana Navigasyon Menüsü (Sabit Navbar) -->
     <nav>
         <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="index.html"><i class="nav-icon">🏠</i>Home</a></li>
+            <li><a href="about.html"><i class="nav-icon">👤</i>About</a></li>
+            <li><a href="projects.html"><i class="nav-icon">📂</i>Projects</a></li>
+            <li><a href="contact.html"><i class="nav-icon">📧</i>Contact</a></li>
         </ul>
     </nav>
     
     <div class="content-wrapper">
-        <h1 id="index-title">Loading...</h1>
+        <h1 id="index-title" class="page-title">Loading...</h1>
         <p id="index-description">Loading content...</p>
         <div class="motivational-quote">
             <p id="index-quote">Loading quote...</p>
