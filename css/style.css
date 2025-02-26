@@ -84,10 +84,23 @@ p {
     background: rgba(255, 255, 255, 0.8);
     padding: 2px;
     transition: all 0.3s ease;
+    overflow: hidden; /* Ensure glow effect stays contained */
 }
 
 .site-logo:hover {
-    transform: scale(1.05);
+    transform: scale(1.05); /* Subtle scale instead of movement */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 10px rgba(70, 130, 180, 0.6); /* Outer glow */
+    animation: pulse 1.5s infinite alternate; /* Pulsing animation */
+}
+
+/* Pulse animation for logo */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.6), 0 0 8px rgba(70, 130, 180, 0.4);
+    }
+    100% {
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 20px rgba(70, 130, 180, 0.7);
+    }
 }
 
 .site-logo img {
@@ -95,16 +108,26 @@ p {
     height: 100%;
     object-fit: contain;
     border-radius: 4px;
+    transition: all 0.3s ease; /* Smooth transition for image */
+}
+
+.site-logo:hover img {
+    filter: brightness(1.1); /* Subtle brightness increase on hover */
 }
 
 /* DESKTOP & TABLET NAVIGATION (769px and above) */
 @media (min-width: 769px) {
-    /* Reposition logo to top center of sidebar for desktop */
+    /* Reposition logo to top center of sidebar for desktop - with fixed position */
     .site-logo {
         top: 30px; /* Position from the top edge */
         left: 100px; /* Center horizontally within the 200px navbar */
         transform: translateX(-50%); /* Center horizontally only */
         z-index: 1001; /* Keep above nav */
+    }
+    
+    /* Remove transform on hover to prevent position shift */
+    .site-logo:hover {
+        transform: translateX(-50%) scale(1.05); /* Maintain horizontal centering while scaling */
     }
     
     /* Fixed left navbar for desktop/tablet */
@@ -160,14 +183,31 @@ p {
         font-size: 14px; /* Slightly smaller text */
         background-color: rgba(255, 255, 255, 0.2);
         border-radius: 30px; /* More rounded corners */
-        transition: all 0.2s ease;
+        transition: all 0.3s ease;
         font-weight: 600;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden; /* Contain the glow effect */
     }
     
     .nav-links a:hover, 
     .nav-links a.active {
-        background-color: rgba(255, 255, 255, 0.4);
+        background-color: rgba(255, 255, 255, 0.3);
         transform: scale(1.05);
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 8px rgba(70, 130, 180, 0.5);
+        animation: nav-pulse 1.5s infinite alternate;
+        color: #ffffff;
+        text-shadow: 0 0 3px rgba(255, 255, 255, 0.5);
+    }
+    
+    /* Pulse animation for navigation links */
+    @keyframes nav-pulse {
+        0% {
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 5px rgba(70, 130, 180, 0.3);
+        }
+        100% {
+            box-shadow: 0 0 12px rgba(255, 255, 255, 0.7), 0 0 15px rgba(70, 130, 180, 0.6);
+        }
     }
     
     /* Navigation icons */
@@ -225,13 +265,28 @@ p {
         text-decoration: none;
         font-size: 11px; /* Slightly smaller font */
         border-radius: 25px; /* More rounded corners */
-        transition: background-color 0.2s;
+        transition: all 0.3s ease;
         font-weight: 600;
+        position: relative;
+        overflow: hidden;
     }
     
     .nav-links a:hover,
     .nav-links a.active {
         background-color: rgba(255, 255, 255, 0.3);
+        box-shadow: 0 0 8px rgba(255, 255, 255, 0.5), 0 0 5px rgba(70, 130, 180, 0.4);
+        animation: mobile-nav-pulse 1.5s infinite alternate;
+        color: #ffffff;
+    }
+    
+    /* Pulse animation for mobile navigation */
+    @keyframes mobile-nav-pulse {
+        0% {
+            box-shadow: 0 0 3px rgba(255, 255, 255, 0.4), 0 0 3px rgba(70, 130, 180, 0.2);
+        }
+        100% {
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.6), 0 0 10px rgba(70, 130, 180, 0.4);
+        }
     }
     
     /* In mobile view, we'll show small icons */
@@ -298,15 +353,24 @@ p {
         font-size: 10px; /* Smaller font for text */
         margin: 0;
         line-height: 1; /* Tighter line spacing */
+        overflow: hidden;
     }
     
-    /* Adjust icon styling for stacked layout */
-    .nav-icon {
-        display: block;
-        width: 14px; /* Slightly larger icons */
-        height: 14px;
-        margin-right: 0; /* Remove right margin */
-        margin-bottom: 2px; /* Add small space between icon and text */
+    .nav-links a:hover,
+    .nav-links a.active {
+        background-color: rgba(255, 255, 255, 0.3);
+        box-shadow: 0 0 6px rgba(255, 255, 255, 0.4), 0 0 4px rgba(70, 130, 180, 0.3);
+        animation: xs-mobile-nav-pulse 1.5s infinite alternate;
+    }
+    
+    /* Smaller pulse for extra small screens */
+    @keyframes xs-mobile-nav-pulse {
+        0% {
+            box-shadow: 0 0 2px rgba(255, 255, 255, 0.3), 0 0 2px rgba(70, 130, 180, 0.2);
+        }
+        100% {
+            box-shadow: 0 0 6px rgba(255, 255, 255, 0.5), 0 0 7px rgba(70, 130, 180, 0.3);
+        }
     }
     
     /* Adjust the last button to ensure it touches the edge */
