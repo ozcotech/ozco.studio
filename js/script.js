@@ -177,3 +177,17 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .catch(error => console.error("JSON yüklenirken hata oluştu:", error));
 });
+
+// SSL connection check
+document.addEventListener('DOMContentLoaded', function() {
+    const secureConnection = document.getElementById('secure-connection');
+    
+    if (secureConnection) {
+        if (window.location.protocol === 'https:') {
+            secureConnection.style.color = '#4CAF50'; // Green for secure
+        } else {
+            secureConnection.style.color = '#F44336'; // Red for insecure
+            secureConnection.innerHTML = '<img src="assets/icons/unlock-icon.svg" alt="Insecure Connection" class="security-icon"> Insecure Connection';
+        }
+    }
+});

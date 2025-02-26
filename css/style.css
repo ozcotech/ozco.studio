@@ -587,3 +587,31 @@ footer {
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
+
+/* Güvenlik bilgisi ve footer için stiller */
+.security-info {
+    margin-top: 10px;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #888;
+}
+
+.security-icon {
+    width: 14px;
+    height: 14px;
+    margin-right: 4px;
+    vertical-align: middle;
+}
+
+#secure-connection {
+    display: flex;
+    align-items: center;
+    margin-bottom: 3px;
+}
+
+.security-info .hosting-info {
+    font-style: italic;
+}
