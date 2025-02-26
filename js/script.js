@@ -107,6 +107,18 @@ document.addEventListener("DOMContentLoaded", function() {
         const navbar = document.querySelector("nav");
         navbar?.classList.toggle("scrolled", window.scrollY > 50);
     });
+    
+    // 📄 Index Sayfası İçeriğini Yükle
+    if (document.querySelector(".home")) {
+        fetch("data/index.json")
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("index-title").innerText = data.title;
+                document.getElementById("index-description").innerText = data.description;
+                document.getElementById("index-quote").innerText = data.quote;
+            })
+            .catch(error => console.error("Index content loading failed:", error));
+    }
 });
 
 document.addEventListener("DOMContentLoaded", function () {
