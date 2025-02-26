@@ -26,6 +26,59 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
     
+    // Typewriter effect for the motivational quote - continuously looping
+    function typewriterEffect(text) {
+        const quoteElement = document.getElementById('index-quote');
+        if (!quoteElement) return;
+        
+        // Format the quote with a line break for better display
+        // Break after "best" to create two balanced lines
+        const formattedText = "Technology is best\nwhen it brings people together.";
+        
+        let i = 0;
+        const typingSpeed = 80;  // Typing speed milliseconds
+        const pauseTime = 2000;  // Pause time at the end
+        const deletingSpeed = 40; // Deleting speed milliseconds
+        
+        function typing() {
+            if (i < formattedText.length) {
+                // Replace newline character with <br> for HTML
+                if (formattedText.charAt(i) === '\n') {
+                    quoteElement.innerHTML += '<br>';
+                } else {
+                    quoteElement.innerHTML += formattedText.charAt(i);
+                }
+                i++;
+                setTimeout(typing, typingSpeed);
+            } else {
+                setTimeout(erasing, pauseTime); // Wait before erasing
+            }
+        }
+        
+        function erasing() {
+            if (i > 0) {
+                // Remove one character at a time, handling HTML tags for line breaks
+                const currentContent = quoteElement.innerHTML;
+                if (currentContent.endsWith('<br>')) {
+                    quoteElement.innerHTML = currentContent.slice(0, -4); // Remove <br>
+                    i--;
+                } else {
+                    quoteElement.innerHTML = currentContent.slice(0, -1); // Remove one character
+                    i--;
+                }
+                setTimeout(erasing, deletingSpeed);
+            } else {
+                setTimeout(typing, 500); // Wait before typing again
+            }
+        }
+        
+        // Start with empty content to allow the typewriter effect
+        quoteElement.innerHTML = '';
+        
+        // Start the typing effect
+        typing();
+    }
+    
     // Fix homepage size and viewport settings
     function fixHomePageSize() {
         const isHomePage = document.body.classList.contains('home');
@@ -206,7 +259,23 @@ document.addEventListener("DOMContentLoaded", function() {
             .then(data => {
                 document.getElementById("index-title").innerText = data.title;
                 document.getElementById("index-description").innerText = data.description;
-                document.getElementById("index-quote").innerText = data.quote;
+                
+                // Use the quote from JSON but it will be formatted with a line break in the typewriterEffect function
+                typewriterEffect(data.quote);
+                
+                // Adjust vertical spacing between elements
+                const elements = [
+                    document.getElementById("index-title"),
+                    document.getElementById("index-description")
+                ];
+                
+                // Apply tighter spacing
+                elements.forEach(elem => {
+                    if (elem) {
+                        elem.style.marginBottom = "10px";
+                        elem.style.marginTop = "5px";
+                    }
+                });
             })
             .catch(error => console.error("Index content loading failed:", error));
     }

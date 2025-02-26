@@ -578,6 +578,32 @@ textarea:focus::placeholder {
     font-style: italic;
     border-left: 4px solid #696d71;
     border-right: 4px solid #696d71;
+    position: relative;
+    overflow: hidden; /* Ensure content doesn't overflow */
+}
+
+/* Typewriter effect styling for the quote */
+#index-quote {
+    font-family: "Courier New", monospace;
+    display: inline-block;
+    white-space: normal; /* Allow natural text wrapping */
+    word-break: break-word; /* Break words at any character to prevent overflow */
+    overflow-wrap: break-word; /* Modern version of word-wrap */
+    line-height: 1.4; /* Better line spacing */
+    position: relative;
+    min-height: 2.8em; /* Increased to accommodate 2 lines */
+    max-width: 100%; /* Ensure it doesn't exceed container width */
+    padding: 0 5px;
+    margin: 0 auto;
+}
+
+/* Blinking cursor effect for the quote */
+#index-quote:after {
+    content: '|';
+    position: absolute;
+    display: inline-block;
+    margin-left: 2px; /* Position cursor properly */
+    animation: blink-caret 0.75s step-end infinite;
 }
 
 /* =========================
@@ -943,6 +969,14 @@ main {
     .motivational-quote {
         max-width: 95%;
         padding: 10px;
+        font-size: 18px;
+        line-height: 1.3;
+    }
+    
+    #index-quote {
+        font-size: 16px;
+        line-height: 1.3;
+        min-height: 2.6em; /* Space for two lines */
     }
     
     /* Content wrapper adjustments */
@@ -1006,5 +1040,144 @@ main {
     /* Content padding */
     .content-wrapper {
         padding-top: 50px;
+    }
+    
+    .motivational-quote {
+        max-width: 100%;
+        padding: 8px;
+        font-size: 16px;
+    }
+    
+    /* Smaller font for very small screens */
+    #index-quote {
+        font-size: 14px;
+        line-height: 1.2;
+        min-height: 2.4em; /* Space for two lines */
+    }
+}
+
+/* =========================
+   TYPEWRITER EFFECT STYLING 
+   ========================= */
+.tech-container {
+    display: none;
+}
+
+#tech-text {
+    display: none;
+}
+
+/* Home page layout and styles */
+.home-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+    gap: 20px;
+}
+
+.home-text-content {
+    flex: 1;
+    text-align: left;
+}
+
+.home-image-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* GIF styling - no box shadow, integrated into page */
+.home-illustration {
+    max-width: 100%;
+    width: 380px;
+    height: auto;
+    display: block;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* Tighter spacing between header elements */
+.home-text-content h1,
+.home-text-content p {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .home-content {
+        flex-direction: column;
+    }
+    
+    .home-text-content {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .home-image-content {
+        width: 100%;
+    }
+    
+    .tech-container {
+        text-align: center;
+    }
+    
+    .home-illustration {
+        width: 90%;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+    
+    #tech-text {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .home-illustration {
+        width: 95%;
+        max-width: 300px;
+    }
+    
+    #tech-text {
+        font-size: 14px;
+    }
+}
+
+.home-illustration {
+    max-width: 100%;
+    width: 500px;
+    margin: 20px auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.home-illustration:hover {
+    transform: scale(1.02);
+}
+
+/* Responsive adjustment for GIF */
+@media (max-width: 768px) {
+    .home-illustration {
+        width: 90%;
+    }
+    
+    #tech-text {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .home-illustration {
+        width: 95%;
+    }
+    
+    #tech-text {
+        font-size: 18px;
     }
 }
