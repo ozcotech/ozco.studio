@@ -131,11 +131,11 @@ p {
     .nav-links {
         display: flex;
         flex-direction: column;
-        gap: 15px;
+        gap: 10px; /* Further reduced gap between buttons */
         list-style: none;
         padding: 0;
         margin: 0;
-        width: 80%;
+        width: 72%; /* Even narrower buttons */
     }
     
     .nav-links li {
@@ -145,12 +145,12 @@ p {
     .nav-links a {
         display: flex;
         align-items: center;
-        padding: 10px 15px;
+        padding: 6px 10px; /* Further reduced padding for more compact buttons */
         color: white;
         text-decoration: none;
-        font-size: 16px;
+        font-size: 14px; /* Slightly smaller text */
         background-color: rgba(255, 255, 255, 0.2);
-        border-radius: 20px; /* Oval button shape */
+        border-radius: 30px; /* More rounded corners */
         transition: all 0.2s ease;
         font-weight: 600;
     }
@@ -164,9 +164,9 @@ p {
     /* Navigation icons */
     .nav-icon {
         display: inline-block;
-        margin-right: 8px;
-        width: 16px;
-        height: 16px;
+        margin-right: 6px; /* Slightly reduced margin */
+        width: 18px; /* Increased from 16px */
+        height: 18px; /* Increased from 16px */
         vertical-align: middle;
     }
 }
@@ -208,11 +208,11 @@ p {
     /* Simple links for mobile */
     .nav-links a {
         display: inline-block;
-        padding: 6px 10px;
+        padding: 4px 6px; /* More compact padding */
         color: white;
         text-decoration: none;
-        font-size: 12px;
-        border-radius: 15px; /* Rounded corners */
+        font-size: 11px; /* Slightly smaller font */
+        border-radius: 25px; /* More rounded corners */
         transition: background-color 0.2s;
         font-weight: 600;
     }
@@ -222,9 +222,13 @@ p {
         background-color: rgba(255, 255, 255, 0.3);
     }
     
-    /* Hide icons on mobile */
+    /* In mobile view, we'll show small icons */
     .nav-icon {
-        display: none;
+        display: inline-block;
+        width: 13px; /* Slightly smaller */
+        height: 13px; /* Slightly smaller */
+        margin-right: 3px; /* Reduced margin */
+        vertical-align: middle;
     }
     
     /* Content padding for mobile */
