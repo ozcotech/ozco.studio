@@ -1,0 +1,67 @@
+{
+  "title_en": "SmartGuide – AI-Powered Guide Robot for the Visually Impaired",
+  "purpose_en": "To assist visually impaired individuals in navigating safely through both indoor and outdoor environments. The robot provides real-time audio instructions via Bluetooth-connected earbuds and utilizes AI-powered perception systems to detect obstacles and guide the user. The robot is designed to operate for at least 3 hours on a single charge.",
+  "system_overview_en": {
+    "hardware_components": [
+      "Mobile robotic body (wheeled or quadruped format)",
+      "Camera (Stereo or depth-sensing)",
+      "LIDAR sensor (360° environmental scanning)",
+      "Microphone (for receiving voice input)",
+      "Bluetooth module (for wireless audio connection)",
+      "Battery (minimum 3-hour operation)",
+      "Raspberry Pi 4 or NVIDIA Jetson Nano (computing unit)"
+    ],
+    "software_components": [
+      "Python (main programming language)",
+      "OpenCV (for image processing)",
+      "TensorFlow / PyTorch (AI-based object recognition)",
+      "ROS (Robot Operating System)",
+      "SLAM (Simultaneous Localization and Mapping)",
+      "Text-to-Speech system (e.g., gTTS, Amazon Polly) for voice guidance"
+    ],
+    "bluetooth_audio_communication": [
+      "Sends voice instructions such as “Turn right,” “Obstacle ahead,” etc., directly to the user’s earphones.",
+      "Enhanced voice guidance through integrated TTS engine."
+    ]
+  },
+  "key_features_table_en": [
+    {
+      "feature": "Obstacle Detection",
+      "description": "Identifies people, vehicles, stairs, and various objects in real-time."
+    },
+    {
+      "feature": "Voice Navigation",
+      "description": "Sends directional commands to the user’s Bluetooth earbuds."
+    },
+    {
+      "feature": "Navigation System",
+      "description": "GPS for outdoor areas; SLAM-based localization for indoors."
+    },
+    {
+      "feature": "Autonomous Movement",
+      "description": "Optionally guides or follows the user safely."
+    },
+    {
+      "feature": "Emergency Support",
+      "description": "Sends alerts with GPS location in dangerous situations."
+    },
+    {
+      "feature": "Battery Monitoring",
+      "description": "Ensures at least 3 hours of operation and alerts user before shutdown."
+    }
+  ],
+  "example_use_case_en": "Ahmed, a visually impaired person, charges the robot in the morning and takes it on his walk. Through his Bluetooth earbuds, the robot says, “Turn right in 5 meters.” As a bicycle approaches, the robot warns: “Caution! A bicycle is passing quickly on your right.” Ahmed can stop or change direction via voice commands.",
+  "development_plan_en": [
+    "Hardware selection & setup (1 month)",
+    "Basic navigation & obstacle detection (1.5 months)",
+    "Bluetooth voice guidance system (1 month)",
+    "AI-based object recognition & SLAM (2 months)",
+    "Battery testing, emergency protocol, user testing (1–2 months)"
+  ],
+  "future_upgrades_en": [
+    "Facial recognition (to identify familiar people)",
+    "Social interaction filters (e.g., “Ahmed doesn’t need help, just passing by”)",
+    "Weather and traffic voice updates",
+    "Advanced voice command processing with models like GPT-4 or Whisper"
+  ]
+}

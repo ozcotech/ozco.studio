@@ -294,52 +294,6 @@ document.addEventListener("DOMContentLoaded", function() {
             .catch(error => console.error("Error loading about content:", error));
     }
     
-    // Project3 içeriği
-    const projectTitle = document.getElementById("project-title");
-    if (projectTitle) {
-        fetch("data/project3.json")
-            .then(response => response.json())
-            .then(data => {
-                const lang = document.documentElement.lang === "tr" ? "tr" : "en";
-                
-                projectTitle.textContent = data[`title_${lang}`];
-                
-                // Diğer proje içeriklerini doldur
-                const elements = [
-                    "project-introduction", "phase-1-title", "phase-1-description",
-                    "phase-2-title", "phase-2-description", "example", 
-                    "final-stage-title", "final-stage-description",
-                    "business-model", "future-potential", "conclusion"
-                ];
-                
-                elements.forEach(id => {
-                    const element = document.getElementById(id);
-                    if (element && data[`${id.replace(/-/g, "_")}_${lang}`]) {
-                        element.textContent = data[`${id.replace(/-/g, "_")}_${lang}`];
-                    }
-                });
-                
-                // Liste oluşturanlar için özel işlem
-                const lists = {
-                    "target-audience": "target_audience",
-                    "ai-capabilities": "ai_capabilities"
-                };
-                
-                for (const [listId, dataKey] of Object.entries(lists)) {
-                    const list = document.getElementById(listId);
-                    if (list && data[`${dataKey}_${lang}`]) {
-                        list.innerHTML = "";
-                        data[`${dataKey}_${lang}`].forEach(item => {
-                            const li = document.createElement("li");
-                            li.innerHTML = item;
-                            list.appendChild(li);
-                        });
-                    }
-                }
-            })
-            .catch(error => console.error("JSON yüklenirken hata oluştu:", error));
-    }
-    
     // SSL durumu kontrolü
     const secureConnection = document.getElementById('secure-connection');
     if (secureConnection) {
