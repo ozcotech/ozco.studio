@@ -31,9 +31,8 @@ document.addEventListener("DOMContentLoaded", function() {
         const quoteElement = document.getElementById('index-quote');
         if (!quoteElement) return;
         
-        // Format the quote with a line break for better display
-        // Break after "best" to create two balanced lines
-        const formattedText = "Technology is best\nwhen it brings people together.";
+        // Use the dynamic text parameter instead of hardcoding the quote
+        const formattedText = text.replace(/\\n/g, '\n');
         
         let i = 0;
         const typingSpeed = 80;  // Typing speed milliseconds
