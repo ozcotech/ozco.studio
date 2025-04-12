@@ -85,15 +85,9 @@
             display: inline-block;
             overflow: hidden;
             white-space: nowrap;
-            border-right: 0.15em solid #333;
+            border-right: none; /* Removed border which creates the caret */
             margin: 0 auto;
             letter-spacing: 0.05em;
-            animation: blink-caret 0.75s step-end infinite;
-        }
-
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: #333 }
         }
 
         @media (min-width: 769px) {

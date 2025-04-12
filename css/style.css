@@ -584,7 +584,12 @@ textarea:focus::placeholder {
 
 /* Typewriter effect styling for the quote */
 #index-quote {
-    font-family: "Courier New", monospace;
+    font-family: "Bungee Hairline", serif;
+    color: #555;
+    font-size: 18px;
+    text-align: center;
+    line-height: 1.2; /* Adjust line height to match single-line text */
+    margin: 20px auto;
     display: inline-block;
     white-space: normal; /* Allow natural text wrapping */
     word-break: break-word; /* Break words at any character to prevent overflow */
@@ -597,13 +602,10 @@ textarea:focus::placeholder {
     margin: 0 auto;
 }
 
-/* Blinking cursor effect for the quote */
+/* Removed the caret completely */
 #index-quote:after {
-    content: '|';
-    position: absolute;
-    display: inline-block;
-    margin-left: 2px; /* Position cursor properly */
-    animation: blink-caret 0.75s step-end infinite;
+    content: none;
+    animation: none;
 }
 
 /* =========================
